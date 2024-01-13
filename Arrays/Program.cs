@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace ConsoleApp1
+namespace Arrays
 {
     class Program
     {
@@ -113,7 +113,7 @@ namespace ConsoleApp1
                 newArray[i] = int.MinValue;
             }
             int counter = 0;
-            
+
             for (int i = 0; i < array.Length; i++)
             {
                 if (!Exists(array[i], newArray))
