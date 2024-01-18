@@ -88,11 +88,11 @@ namespace StaticClasses
 
     static class OnlyStaticClass
     {
-        public void MethodInstance()
-        {
-            Console.WriteLine("Instance method");
-            Console.WriteLine();
-        }
+        // public void MethodInstance()
+        // {
+        //     Console.WriteLine("Instance method");
+        //     Console.WriteLine();
+        // }
 
         public static void MethodStatic()
         {
