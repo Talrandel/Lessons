@@ -7,6 +7,21 @@ namespace Workers
     /// </summary>
     public abstract class Worker
     {
+        private const double DEFAULT_TAXES = 0.13;
+
+        protected Worker(string name, int age, int itn)
+        {
+            Name = name;
+            Age = age;
+            ITN = itn;
+        }
+
+        protected Worker()
+            : this("Без имени", 25, 0)
+        {
+
+        }
+
         public string Name { get; set; }
 
         public int Age { get; set; }
@@ -20,30 +35,17 @@ namespace Workers
 
         public virtual double GetTaxes()
         {
-            return 0.13;
+            return DEFAULT_TAXES;
         }
 
         public virtual void ShowInfo()
         {
+            var salary = GetSalary();
             Console.WriteLine("Name = " + Name);
             Console.WriteLine("Age = " + Age);
             Console.WriteLine("ITN = " + ITN);
-            Console.WriteLine("Salary = " + GetSalary());
-            Console.WriteLine("Taxes = " + GetSalary() * GetTaxes());
-        }
-
-
-        public Worker(string name, int age, int itn)
-        {
-            Name = name;
-            Age = age;
-            ITN = itn;
-        }
-
-        public Worker()
-            : this("Без имени", 25, 0)
-        {
-
+            Console.WriteLine("Salary = " + salary);
+            Console.WriteLine("Taxes = " + salary * GetTaxes());
         }
     }
 }
