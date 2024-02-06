@@ -9,9 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibraries", "ClassLibr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticClasses", "StaticClasses\StaticClasses.csproj", "{6293CD12-703B-45E9-93BB-D73CEE5B5320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workers", "Workers\Workers.csproj", "{11FFD42D-E5AD-48AC-9730-50C402D9F6D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workers", "Workers\Workers.csproj", "{11FFD42D-E5AD-48AC-9730-50C402D9F6D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Inheritance", "Classes.Inheritance\Classes.Inheritance.csproj", "{A6A4CAEE-FD73-46FC-B434-88EA2A65E9D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes.Inheritance", "Classes.Inheritance\Classes.Inheritance.csproj", "{A6A4CAEE-FD73-46FC-B434-88EA2A65E9D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workers.Interfaces", "Workers.Interfaces\Workers.Interfaces.csproj", "{AFC57237-CA95-4E98-96C4-1BE94CD1CE40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Interfaces", "Classes.Interfaces\Classes.Interfaces.csproj", "{BC266546-6D99-47CB-93DB-3CA5276319EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +39,21 @@ Global
 		{A6A4CAEE-FD73-46FC-B434-88EA2A65E9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6A4CAEE-FD73-46FC-B434-88EA2A65E9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6A4CAEE-FD73-46FC-B434-88EA2A65E9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC266546-6D99-47CB-93DB-3CA5276319EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC266546-6D99-47CB-93DB-3CA5276319EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC266546-6D99-47CB-93DB-3CA5276319EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC266546-6D99-47CB-93DB-3CA5276319EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{11FFD42D-E5AD-48AC-9730-50C402D9F6D2} = {DAFADE50-9479-4F4B-9BF2-11C19CD68D2F}
+		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40} = {DAFADE50-9479-4F4B-9BF2-11C19CD68D2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B7142E2-B9DB-4FB8-8749-05B1A7ACA74E}
