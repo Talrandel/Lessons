@@ -14,7 +14,7 @@ namespace Classes.Inheritance
         {
             StudyClassNew studyClassNew = new StudyClassNew();
 
-            studyClassNew.
+            //studyClassNew.
 
             ((ISchool)studyClassNew).Study();
 
