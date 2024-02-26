@@ -30,7 +30,7 @@
             odArray.Print();
 
             Console.WriteLine("Recreating one dimensional array...");
-            odArray.ReCreate(!isFillUser);
+            odArray.ReCreate(length, !isFillUser);
             odArray.Print();
         }
 

@@ -2,6 +2,8 @@ namespace HW3_1._3_2._3_3
 {
     class TwoDimensionalArray
     {
+        private int[,] _array;
+        
         public TwoDimensionalArray(int rows, int columns, bool isFillUser = false)
         {
 

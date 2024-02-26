@@ -3,27 +3,20 @@ namespace HW3_1._3_2._3_3
     class OneDimensionalArray
     {
         private int[] _array;
+        private static Random _rand = new Random();
 
         public OneDimensionalArray(int length, bool isFillUser = false)
         {
-            _array = new int[length];
-            if (isFillUser)
-            {
-                FillUser();
-            }
-            else
-            {
-                FillRandom();
-            }
+            ReCreate(length, isFillUser);
         }
 
         public void Print()
         {
             Console.WriteLine("Printing one dimensional array:");
-            Print(newArray);
+            Print(_array);
         }        
 
-        public void ReCreate(bool isFillUser = false)
+        public void ReCreate(int length, bool isFillUser = false)
         {
             _array = new int[length];
             if (isFillUser)
@@ -74,17 +67,16 @@ namespace HW3_1._3_2._3_3
         {
             for (int i = 0; i < array.Length; i++)
             {
-                _array[i] = rand.Next(0, 201);
+                Console.WriteLine($"Input {i}-th element of array:")
+                _array[i] = int.Parse(Console.ReadLine());
             }
         }
 
         private void FillRandom()
         {
-            Random rand = new Random();
             for (int i = 0; i < _array.Length; i++)
             {
-                Console.WriteLine($"Input {i}-th element of array:")
-                _array[i] = int.Parse(Console.ReadLine());
+                _array[i] = _rand.Next(0, 201);
             }
         }
     }
