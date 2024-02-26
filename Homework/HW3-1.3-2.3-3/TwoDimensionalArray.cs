@@ -1,30 +1,25 @@
 namespace HW3_1._3_2._3_3
 {
-    class TwoDimensionalArray
+    sealed class TwoDimensionalArray : ArrayBase
     {
         private int[,] _array;
-        
-        public TwoDimensionalArray(int rows, int columns, bool isFillUser = false)
+
+        public TwoDimensionalArray(bool isFillUser = false)
+        {
+            ReCreate(isFillUser);
+        }
+
+        public override void Print()
         {
 
         }
 
-        public void Print()
+        protected override void FillUser()
         {
 
         }
 
-        public void ReCreate(bool isFillUser = false)
-        {
-
-        }
-
-        private void FillUser()
-        {
-
-        }
-
-        private void FillRandom()
+        protected override void FillRandom()
         {
 
         }

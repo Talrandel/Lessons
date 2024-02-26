@@ -1,28 +1,23 @@
 namespace HW3_1._3_2._3_3
 {
-    class JaggedArray
+    sealed class JaggedArray : ArrayBase
     {
-        public JaggedArray(int rows, bool isFillUser = false)
+        public JaggedArray(bool isFillUser = false)
+        {
+            ReCreate(isFillUser);
+        }
+
+        public override void Print()
         {
 
         }
 
-        public void Print()
+        protected override void FillUser()
         {
 
         }
 
-        public void ReCreate(bool isFillUser = false)
-        {
-
-        }
-
-        private void FillUser()
-        {
-
-        }
-
-        private void FillRandom()
+        protected override void FillRandom()
         {
 
         }

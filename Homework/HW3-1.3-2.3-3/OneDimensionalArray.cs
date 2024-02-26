@@ -1,32 +1,19 @@
 namespace HW3_1._3_2._3_3
 {
-    class OneDimensionalArray
+    sealed class OneDimensionalArray : ArrayBase
     {
         private int[] _array;
         private static Random _rand = new Random();
 
-        public OneDimensionalArray(int length, bool isFillUser = false)
+        public OneDimensionalArray(bool isFillUser = false)
         {
-            ReCreate(length, isFillUser);
+            ReCreate(isFillUser);
         }
 
-        public void Print()
+        public override void Print()
         {
             Console.WriteLine("Printing one dimensional array:");
             Print(_array);
-        }        
-
-        public void ReCreate(int length, bool isFillUser = false)
-        {
-            _array = new int[length];
-            if (isFillUser)
-            {
-                FillUser();
-            }
-            else
-            {
-                FillRandom();
-            }
         }
 
         public void RemoveElementsMore100()
@@ -63,8 +50,11 @@ namespace HW3_1._3_2._3_3
             Console.WriteLine();            
         }
 
-        private void FillUser()
+        protected override void FillUser()
         {
+            Console.WriteLine("One dimensional array. Please, input array length > 0:");
+            int length = int.Parse(Console.ReadLine());
+            _array = new int[length];
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine($"Input {i}-th element of array:")
@@ -72,8 +62,9 @@ namespace HW3_1._3_2._3_3
             }
         }
 
-        private void FillRandom()
+        protected override void FillRandom()
         {
+            _array = new int[_rand.Next(3, 21)];
             for (int i = 0; i < _array.Length; i++)
             {
                 _array[i] = _rand.Next(0, 201);
