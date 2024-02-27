@@ -17,7 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workers.Interfaces", "Worke
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes.Interfaces", "Classes.Interfaces\Classes.Interfaces.csproj", "{BC266546-6D99-47CB-93DB-3CA5276319EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Generics", "Classes.Generics\Classes.Generics.csproj", "{61AFB7C9-5573-4C28-938C-69EB5DE9D251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes.Generics", "Classes.Generics\Classes.Generics.csproj", "{61AFB7C9-5573-4C28-938C-69EB5DE9D251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{9E201C40-6788-4980-9FDC-BA5590B46625}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW3-1.3-2.3-3", "Homework\HW3-1.3-2.3-3\HW3-1.3-2.3-3.csproj", "{17F67E9A-5E97-4284-9595-F9618AC8627C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Exceptions", "Classes.Exceptions\Classes.Exceptions.csproj", "{138FE0F4-7576-43D0-BB50-390BA979665F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 		{61AFB7C9-5573-4C28-938C-69EB5DE9D251}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61AFB7C9-5573-4C28-938C-69EB5DE9D251}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61AFB7C9-5573-4C28-938C-69EB5DE9D251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F67E9A-5E97-4284-9595-F9618AC8627C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F67E9A-5E97-4284-9595-F9618AC8627C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F67E9A-5E97-4284-9595-F9618AC8627C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F67E9A-5E97-4284-9595-F9618AC8627C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138FE0F4-7576-43D0-BB50-390BA979665F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138FE0F4-7576-43D0-BB50-390BA979665F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138FE0F4-7576-43D0-BB50-390BA979665F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138FE0F4-7576-43D0-BB50-390BA979665F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +74,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{11FFD42D-E5AD-48AC-9730-50C402D9F6D2} = {DAFADE50-9479-4F4B-9BF2-11C19CD68D2F}
 		{AFC57237-CA95-4E98-96C4-1BE94CD1CE40} = {DAFADE50-9479-4F4B-9BF2-11C19CD68D2F}
+		{17F67E9A-5E97-4284-9595-F9618AC8627C} = {9E201C40-6788-4980-9FDC-BA5590B46625}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B7142E2-B9DB-4FB8-8749-05B1A7ACA74E}
