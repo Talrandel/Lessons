@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{9E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW3-1.3-2.3-3", "Homework\HW3-1.3-2.3-3\HW3-1.3-2.3-3.csproj", "{17F67E9A-5E97-4284-9595-F9618AC8627C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Exceptions", "Classes.Exceptions\Classes.Exceptions.csproj", "{138FE0F4-7576-43D0-BB50-390BA979665F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes.Exceptions", "Classes.Exceptions\Classes.Exceptions.csproj", "{138FE0F4-7576-43D0-BB50-390BA979665F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes.Relationships", "Classes.Relationships\Classes.Relationships.csproj", "{4E28FA6E-7153-4417-8517-1AE05D531185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{138FE0F4-7576-43D0-BB50-390BA979665F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{138FE0F4-7576-43D0-BB50-390BA979665F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{138FE0F4-7576-43D0-BB50-390BA979665F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E28FA6E-7153-4417-8517-1AE05D531185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E28FA6E-7153-4417-8517-1AE05D531185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E28FA6E-7153-4417-8517-1AE05D531185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E28FA6E-7153-4417-8517-1AE05D531185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
