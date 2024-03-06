@@ -7,8 +7,6 @@ namespace Generics._34.Implementations
         private T[] _items;
         private IArrayValueProvider<T> _valueProvider;
 
-        public T this[int index] => _items[index];
-
         public int Length { get; }
 
         public OneDimensionalArray(int length, IArrayValueProvider<T> valueProvider)
