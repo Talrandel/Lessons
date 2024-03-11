@@ -14,17 +14,25 @@ namespace Classes.Generics
     {
     }
 
-    interface ICovariance<out T>
-    {
-        T[] GetItems();
 
-        void SetItems(T[] items);
-    }
 
-    interface IContrvariance<in T>
-    {
-        T[] GetItems();
+    //interface ICovariance<out T>
+    //{
+    //    T[] GetItems();
 
-        void SetItems(T[] items);
-    }
+    //    void SetItems(T[] items);
+    //}
+
+
+
+
+    //interface IContrvariance<in T>
+    //{
+    //    T[] GetItems();
+
+    //    void SetItems(T[] items);
+    //}
+
+
+
 }

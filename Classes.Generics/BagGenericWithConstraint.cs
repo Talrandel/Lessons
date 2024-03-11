@@ -31,21 +31,9 @@ namespace Classes.Generics
         }
     }
 
-    class Item : ItemBase
-    {
-        public Item(int id) : base(id)
-        {
-        }
-    }
-
     interface IItem
     {
         int Id { get; }
-    }
-
-    class DefinatelyItem : IItem
-    {
-        public int Id { get; }
     }
 
     class BagGenericBaseClass<T>
@@ -57,10 +45,4 @@ namespace Classes.Generics
         where T : IItem
     {
     }
-
-    class BagGenericConcreteClass<T>
-        where T : Item
-    {
-    }
-
 }

@@ -28,16 +28,6 @@ namespace Classes.Generics
             _items[Index++] = obj;
         }
 
-        public T Take(int index)
-        {
-            if (index > _items.Length || index > Index || index < 0)
-            {
-                return default;
-            }
-            Index--;
-            return _items[index];
-        }
-
         public T Take()
         {
             return _items[Index--];
