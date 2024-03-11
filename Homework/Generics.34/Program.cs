@@ -1,5 +1,5 @@
 ﻿using Generics._34.Implementations;
-using Generics._34.Interfaces;
+using Lib1.Interfaces;
 
 namespace Generics._34
 {
@@ -14,10 +14,10 @@ namespace Generics._34
             IArrayValueProvider<bool> arrayValueProviderBool = new BoolValueProvider();
             IArrayValueProvider<string> arrayValueProviderString = new StringValueProvider(length);
 
-            IArray<int> odArrayInt = new OneDimensionalArray<int>(length, arrayValueProviderInt);
-            IArray<int> odArrayIntBig = new OneDimensionalArray<int>(length, arrayValueProviderIntBig);
-            IArray<bool> odArraybool = new OneDimensionalArray<bool>(length, arrayValueProviderBool);
-            IArray<string> odArrayString = new OneDimensionalArray<string>(length, arrayValueProviderString);
+            OneDimensionalArray<int> odArrayInt = new OneDimensionalArray<int>(length, arrayValueProviderInt);
+            OneDimensionalArray<int> odArrayIntBig = new OneDimensionalArray<int>(length, arrayValueProviderIntBig);
+            OneDimensionalArray<bool> odArraybool = new OneDimensionalArray<bool>(length, arrayValueProviderBool);
+            OneDimensionalArray<string> odArrayString = new OneDimensionalArray<string>(length, arrayValueProviderString);
 
             IPrinter[] printers = { odArrayInt, odArraybool, odArrayString, odArrayIntBig };
 

@@ -1,4 +1,4 @@
-﻿using Generics._34.Interfaces;
+﻿using Lib1.Interfaces;
 
 namespace Generics._34.Implementations
 {

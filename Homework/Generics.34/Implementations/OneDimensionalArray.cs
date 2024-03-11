@@ -1,13 +1,11 @@
-﻿using Generics._34.Interfaces;
+﻿using Lib1.Interfaces;
 
 namespace Generics._34.Implementations
 {
-    internal class OneDimensionalArray<T> : IArray<T>, IPrinter
+    internal class OneDimensionalArray<T> : IArray, IPrinter
     {
         private T[] _items;
         private IArrayValueProvider<T> _valueProvider;
-
-        public T this[int index] => _items[index];
 
         public int Length { get; }
 
