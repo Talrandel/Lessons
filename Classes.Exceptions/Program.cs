@@ -7,12 +7,67 @@ class Program
     static void Main()
     {
         //ExeptionExamples();
-        DivideByZeroExeptionExample();
+        //DivideByZeroExeptionExample();
 
-
+        Ex12();
     }
 
-    static void DivideByZeroExeptionExample()
+    static void Ex1()
+    {
+        try
+        {
+        }
+        catch
+        {
+        }
+    }
+
+    static void Ex2()
+    {
+        try
+        {
+        }
+        catch (Exception)
+        {
+        }
+    }
+
+    static void Ex3()
+    {
+        try
+        {
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+
+    static void Ex4()
+    {
+        try
+        {
+            throw new Exception("Третий сезон ведьмака");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+
+    static void Ex5()
+    {
+        try
+        {
+            throw new ArgumentNullException("Нет интернета на уроке");
+        }
+        catch (DivideByZeroException ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+
+    static void Ex6()
     {
         try
         {
@@ -37,14 +92,96 @@ class Program
         }
     }
 
-    static void ExeptionExamplesWithTryCatch()
+    static void Ex7()
     {
-        int[] someArray = null;
-
-        for (int i = 0; i < 10; i++)
+        try
         {
-            someArray[i] = i; // NullReferenceException
-            Console.WriteLine(someArray[i]);
+            throw new Exception("Some exception");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Throw");
+            throw;
+        }
+    }
+
+    static void Ex8()
+    {
+        try
+        {
+            throw new Exception("Some exception");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Throw ex");
+            throw ex;
+        }
+    }
+
+    static void Ex9()
+    {
+        try
+        {
+            throw new Exception("Some exception");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Throw Another exception");
+            throw new Exception("Another exception"); ;
+        }
+    }
+
+    static void Ex10()
+    {
+        try
+        {
+            try
+            {
+                throw new Exception("Some exception");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Throw Another exception");
+                throw new Exception("Another exception"); ;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Catch inner exception");
+        }
+    }
+
+    static void Ex11()
+    {
+        try
+        {
+            throw new Exception("Some exception");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Catch exception");
+            return;
+        }
+        finally 
+        {
+            Console.WriteLine("Finally выполняется всегда");
+        }
+    }
+
+    static void Ex12()
+    {
+        try
+        {
+            throw new Exception("Some exception");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Catch exception and throw");
+            throw;
+        }
+        finally
+        {
+            Console.WriteLine("... или не всегда?");
         }
     }
 
