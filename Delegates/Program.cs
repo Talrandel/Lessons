@@ -2,8 +2,72 @@
 {
     class Program
     {
+        delegate void MyDelegate();
+
+        static void DoSomething()
+        {
+            Console.WriteLine("Blablabla");
+        }
+        static void KirillAskedForAnotherMethod()
+        {
+            Console.WriteLine("Yes, delegate can contain more methods");
+        }
+
+        static int GetRandomValue()
+        {
+            Random rand = new Random();
+            return rand.Next();
+        }
+
+        static int SumTwoValues(int a, int b)
+        {
+            return a + b;
+        }
         static void Main()
         {
+            //DoSomething();
+
+            //MyDelegate methodPointer = null;
+            // methodPointer += KirillAskedForAnotherMethod;
+            // methodPointer();
+
+            // methodPointer -= DoSomething;
+            // methodPointer();
+            // methodPointer -= KirillAskedForAnotherMethod;
+            // if (methodPointer != null)
+            // {
+            //     methodPointer();
+            // }
+
+            //Console.WriteLine();
+            //methodPointer?.Invoke();
+
+            // MyDelegate method = () => Console.WriteLine("Лямбда!");
+
+            // methodPointer += method;
+            // methodPointer?.Invoke();
+            // methodPointer -= method;
+            // methodPointer?.Invoke();
+
+            // Action action = () => Console.WriteLine("Action! Лямбда!");
+            // action();
+
+            // Action<int> action1 = (x) => Console.WriteLine($"Action<int>! {x}");
+            // action1(157);
+
+            // Func<int> func = () => new Random().Next();
+            // int result = func();
+            // Console.WriteLine(func());
+
+            // int[] arrayInt = new int[100];
+            // FillArray(arrayInt, () => new Random().Next(0, 11));
+            // Print(arrayInt);
+
+
+
+
+
+
             // Action someAction = DoSomething;
             // Func<int> someFunction = GetRandomValue;
 
@@ -35,25 +99,29 @@
             // int someValue = someFunction();
             // Console.WriteLine(someValue);
 
-            // int[] intArray = new int[100];
-            // FillArray(intArray, () => Random.Shared.Next(0, 501));
+            int[] intArray = new int[100];
+            FillArray(intArray, () => Random.Shared.Next(0, 501));
+            Print(intArray);
+
+            Console.WriteLine();
+
+            //ForEachAction(intArray, (x) => Console.Write(x + " "));
+
+            // FillArray(intArray, () => Random.Shared.Next(int.MinValue, 0));
             // Print(intArray);
 
-            // FillArray2(intArray, () => Random.Shared.Next(int.MinValue, 0));
-            // Print(intArray);
+            // PrintArrayWithCondition(intArray, (x) => x % 2 == 0);
+            // PrintArrayWithCondition(intArray, (x) => x > 50);
+            // PrintArrayWithCondition(intArray, (x) => x % 2 == 1);
 
-            // PrintArrayWithCondition<int>(intArray, (x) => x % 2 == 0);
-            // PrintArrayWithCondition<int>(intArray, (x) => x > 50);
-            // PrintArrayWithCondition<int>(intArray, (x) => x % 2 == 1);
-
-            // ForEachAction<int>(intArray, (x) => 
+            // ForEachAction(intArray, (x) => 
             // {
             //     double pow = Math.Pow(x, 2);
-            //     Console.WriteLine(x + ", pow 2 = " + pow);
+            //     Console.WriteLine("Value = " + x + ", pow^2 = " + pow);
             // });
 
             // int[] newArrayNo100 = Where(intArray, (x) => Math.Abs(x) < 100);
-            // ForEachAction<int>(newArrayNo100, (x) => Console.Write(x + " "));
+            // ForEachAction(newArrayNo100, (x) => Console.Write(x + " "));
 
             bool[] boolArray = new bool[100];
             FillArray(boolArray, () => Random.Shared.Next(0, 2) > 0);
@@ -61,6 +129,15 @@
             
             bool[] newBoolArray = Where(boolArray, (x) => x != false);
             ForEachAction(newBoolArray, (x) => Console.Write(x + " "));
+        }
+
+        static void Print<T>(T[] array)
+        {
+            for (int i = 0; i< array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine("\n\n");
         }
 
         static void FillArray<T>(T[] array, Func<T> fillRandFunc)
@@ -126,22 +203,6 @@
                 Console.Write(array[i] + " ");
             }
             Console.WriteLine("\n\n");
-        }
-
-        static void DoSomething()
-        {
-            Console.WriteLine("Blablabla");
-        }
-
-        static int GetRandomValue()
-        {
-            Random rand = new Random();
-            return rand.Next();
-        }
-
-        static int SumTwoValues(int a, int b)
-        {
-            return a + b;
         }
 
     }

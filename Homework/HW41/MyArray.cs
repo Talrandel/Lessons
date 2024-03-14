@@ -1,46 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace HW41
 {
-    public sealed class MyArray<T> : IEnumerable<T>, IEnumerator<T>, IMyArray<T>
+    public sealed class MyArray<T> : IEnumerable<T>, IMyArray<T>
         where T: IComparable, IComparable<T>, IEquatable<T>
     {
         private const int DEFAULT_CAPACITY = 7;
         public const int MAX_ARRAY_LENGTH = int.MaxValue / 4;
         private T[] _items;
-        private int _capacity;
         private int _size;
 
         static readonly T[] _emptyArray = [];
 
-        public MyArray() : this(DEFAULT_CAPACITY)
-        {
-        }
+        public MyArray() : this(DEFAULT_CAPACITY) { }
 
         public MyArray(int capacity)
         {
-            if (capacity < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(capacity));
-            }
-            _capacity = capacity;
-            _items = capacity == 0 ? _emptyArray : new T[_capacity];
+            ArgumentOutOfRangeException.ThrowIfNegative(capacity);
+            _items = capacity == 0 ? _emptyArray : new T[capacity];
         }
 
         public MyArray(T[] collection)
         {
-            if (collection is null)
-            {
-                throw new ArgumentNullException(nameof(collection));
-            }
-            _capacity = collection.Length;
+            ArgumentNullException.ThrowIfNull(collection);
             _items = collection;
         }
 
@@ -55,7 +37,6 @@ namespace HW41
             set
             {
                 ArgumentOutOfRangeException.ThrowIfLessThan(value, _size);
-
                 if (value != _items.Length)
                 {
                     if (value > 0)
@@ -75,15 +56,77 @@ namespace HW41
             }
         }
 
+        // TODO: ban modifing array if IsReadOnly == true
         public bool IsReadOnly { get; set; } = false;
 
-        public T this[int index]
-        {
-            get => _items[index];
+        public T this[int index] { get => _items[index]; set => _items[index] = value; }
 
-            set => _items[index] = value;
+        public void Add(T item)
+        {
+            if (_size == _items.Length)
+            {
+                EnsureCapacity(_size + 1);
+            }
+            _items[_size++] = item;
         }
 
+        public void AddRange(MyArray<T> collection)
+        {
+            ArgumentNullException.ThrowIfNull(collection);
+            int count = collection.Count;
+            if (count > 0)
+            {
+                EnsureCapacity(_size + count);
+                if (0 < _size)
+                {
+                    Array.Copy(_items, 0, _items, 0 + count, _size);
+                }
+
+                if (_items == collection._items)
+                {
+                    Array.Copy(_items, 0, _items, 0, 0);
+                    Array.Copy(_items, 0 + count, _items, 0 * 2, _size);
+                }
+                else
+                {
+                    T[] itemsToInsert = new T[count];
+                    collection.CopyTo(itemsToInsert, 0);
+                    itemsToInsert.CopyTo(_items, 0);
+                }
+                _size += count;
+            }
+        }
+
+        public bool All(Func<T, bool> conditionFunc)
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                if (!conditionFunc(_items[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool Any(Func<T, bool> conditionFunc)
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                if (conditionFunc(_items[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public T Average(Func<T[], T> averageFunc)
+        {
+            ArgumentNullException.ThrowIfNull(averageFunc);
+            return averageFunc(_items);            
+        }
+        
         public void Clear()
         {
             if (_size > 0)
@@ -92,6 +135,21 @@ namespace HW41
                 _size = 0;
             }
         }
+
+        public int CountByWhere(Func<T, bool> conditionFunc)
+        {
+            ArgumentNullException.ThrowIfNull(conditionFunc);
+            int counter = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                if (conditionFunc(_items[i]))
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
         public bool Contains(T item)
         {
             if (item == null)
@@ -118,48 +176,59 @@ namespace HW41
                 return false;
             }
         }
+        
         public void CopyTo(T[] array, int arrayIndex)
         {
             Array.Copy(_items, 0, array, arrayIndex, _size);
         }
 
-        public void Add(T item)
+        public T First(Func<T, bool> conditionFunc = null)
         {
-            if (_size == _items.Length)
+            if (conditionFunc is null && _items[0] is not null)
             {
-                EnsureCapacity(_size + 1);
+                return _items[0];
             }
-            _items[_size++] = item;
+
+            for (int i = 0; i < _size; i++)
+            {
+                if (conditionFunc(_items[i]))
+                {
+                    return _items[i];
+                }
+            }
+            throw new Exception("No elements found by provided condition");
         }
 
-        public void AddRange(T[] collection)
+        public T FirstOrDefault(Func<T, bool> conditionFunc = null)
         {
-            if (collection is null)
+            if (conditionFunc is null && _items[0] is not null)
             {
-                throw new ArgumentNullException(nameof(collection));
+                return _items[0];
             }
-            int count = collection.Length;
-            if (count > 0)
-            {
-                EnsureCapacity(_size + count);
-                if (0 < _size)
-                {
-                    Array.Copy(_items, 0, _items, 0 + count, _size);
-                }
 
-                if (_items == collection)
+            for (int i = 0; i < _size; i++)
+            {
+                if (conditionFunc(_items[i]))
                 {
-                    Array.Copy(_items, 0, _items, 0, 0);
-                    Array.Copy(_items, 0 + count, _items, 0 * 2, _size);
+                    return _items[i];
                 }
-                else
-                {
-                    T[] itemsToInsert = new T[count];
-                    collection.CopyTo(itemsToInsert, 0);
-                    itemsToInsert.CopyTo(_items, 0);
-                }
-                _size += count;
             }
+            return default;
+        }
+
+        public void ForEach(Action<T> action)
+        {
+            ArgumentNullException.ThrowIfNull(action);
+
+            for (int i = 0; i < _size; i++)
+            {
+                action(_items[i]);
+            }
+        }
+
+        public int IndexOf(T item)
+        {
+            return Array.IndexOf(_items, item, 0, _size);
         }
 
         public void Insert(int index, T item)
@@ -177,8 +246,62 @@ namespace HW41
             {
                 Array.Copy(_items, index, _items, index + 1, _size - index);
             }
+
             _items[index] = item;
             _size++;
+        }
+
+        public T Max()
+        {
+            T max = _items[0];
+            for (int i = 1; i < _size; i++)
+            {
+                if (max.CompareTo(_items[i]) > 0)
+                {
+                    max = _items[i];
+                }
+            }
+            return max;
+        }
+
+        public T Min()
+        {
+            T min = _items[0];
+            for (int i = 1; i < _size; i++)
+            {
+                if (min.CompareTo(_items[i]) < 0)
+                {
+                    min = _items[i];
+                }
+            }
+            return min;
+        }
+
+        public TResult[] OfType<TResult>()
+        {
+            TResult[] newArray = new TResult[_size];
+            int index = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                if (_items[i] is TResult res)
+                {
+                    newArray[index++] = res;
+                }
+            }
+            Array.Resize(ref newArray, index);
+            return newArray;
+        }
+
+        public TResult[] Project<TResult>(Func<T, TResult> projector)
+        {
+            ArgumentNullException.ThrowIfNull(projector);
+
+            TResult[] results = new TResult[_size];
+            for (int i = 0; i < _size; i++)
+            {
+                results[i] = projector(_items[i]);
+            }
+            return results;            
         }
 
         public bool Remove(T item)
@@ -205,20 +328,9 @@ namespace HW41
 
         public void RemoveRange(int index, int count)
         {
-            if (index < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(index));
-            }
-
-            if (count < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(count));
-            }
-
-            if (_size - index < count)
-            {
-                throw new ArgumentException("Invalid length");
-            }
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            ArgumentOutOfRangeException.ThrowIfNegative(count);
+            ArgumentOutOfRangeException.ThrowIfNegative(_size - index - count);
 
             if (count > 0)
             {
@@ -241,9 +353,37 @@ namespace HW41
             Array.Sort(_items, 0, Count, comparer);
         }
 
-        public int IndexOf(T item)
+        public T[] Take(int startIndex, int count)
         {
-            return Array.IndexOf(_items, item, 0, _size);
+            var lastIndex = startIndex + count;
+            if (lastIndex > _size)
+            {
+                lastIndex = _size;
+            }
+            T[] newArray = new T[count];
+            int index = 0;
+            for (int i = startIndex; i < lastIndex; i++)
+            {
+                newArray[index++] = _items[i];
+            }
+            Array.Resize(ref newArray, index);
+            return newArray;
+        }
+
+        public T[] Where(Func<T, bool> conditionFunc)
+        {
+            ArgumentNullException.ThrowIfNull(conditionFunc);
+            T[] newArray = new T[_size];
+            int index = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                if (conditionFunc(_items[i]))
+                {
+                    newArray[index++] = _items[i];
+                }
+            }
+            Array.Resize(ref newArray, index);
+            return newArray;
         }
 
         private void EnsureCapacity(int min)
@@ -265,68 +405,66 @@ namespace HW41
             }
         }
 
-        #region Methods linq
-
-        public void ForEach(Action<T> action)
-        {
-            ArgumentNullException.ThrowIfNull(action);
-
-            for (int i = 0; i < _size; i++)
-            {
-                action(_items[i]);
-            }
-        }
-
-        // order by
-        // skip
-        // take
-        // where
-        // project
-        // any
-        // all
-        // distinct
-        // except
-        // oftype
-        // first
-        // firstOrDefault
-        // Range
-        // Count
-        // Contains
-        // sum
-        // min / max
-        // average
-
-
-        #endregion
-
-        #region IEnumerator
-
-        public T Current { get; }
-        object IEnumerator.Current { get; }
-
-        public bool MoveNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        #region IEnumerable
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new MyEnumerator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new MyEnumerator(this);
+        }
+
+        public struct MyEnumerator : IEnumerator<T>, IEnumerator
+        {
+            private MyArray<T> _array;
+            private int _currentIndex;
+            private T _current;
+ 
+            internal MyEnumerator(MyArray<T> array)
+            {
+                _array = array;
+                _currentIndex = 0;
+                _current = default;
+            }
+ 
+            public void Dispose() { }
+ 
+            public bool MoveNext()
+            {
+                MyArray<T> localArray = _array;
+ 
+                if ((uint)_currentIndex < (uint)localArray._size) 
+                {                                                     
+                    _current = localArray._items[_currentIndex++];
+                    return true;
+                }
+                _currentIndex = _array._size + 1;
+                _current = default;
+                return false;   
+            }
+ 
+            public T Current => _current;
+
+            object IEnumerator.Current 
+            {
+                get 
+                {
+                    if(_currentIndex == 0 || _currentIndex == _array._size + 1) 
+                    {
+                        throw new NullReferenceException(nameof(Current));
+                    }
+                    return Current;
+                }
+            }
+    
+            void IEnumerator.Reset()
+            {
+                _currentIndex = 0;
+                _current = default;
+            } 
         }
 
         #endregion
