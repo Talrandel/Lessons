@@ -9,7 +9,7 @@ class Program
         //ExeptionExamples();
         //DivideByZeroExeptionExample();
 
-        Ex12();
+        Ex13();
     }
 
     static void Ex1()
@@ -185,19 +185,26 @@ class Program
         }
     }
 
-
-    static void ExeptionExamples()
+    static void Ex13()
     {
-        int[] someArray = null;
-
-        for (int i = 0; i < 10; i++)
+        try
         {
-            someArray[i] = i; // NullReferenceException
-            Console.WriteLine(someArray[i]);
+            throw new MyException("Some exception", "Ура. собственное исключение!");
         }
-
-        int a = 5;
-        int b = 0;
-        int c = a / b; // DividedByZeroException
+        catch (MyException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
+}
+
+class MyException : Exception
+{
+    private string _value;
+    public MyException(string message, string value) : base(message)
+    {
+        _value = value;
+    }
+
+    public override string Message => base.Message + $", additional info: {_value}";
 }
