@@ -264,6 +264,36 @@ namespace HW41
             return max;
         }
 
+        public TResult Max<TResult>(Func<T, TResult> projector)
+        {
+            Comparer<TResult> comparer = Comparer<TResult>.Default;
+            TResult max = projector(_items[0]);
+            for (int i = 1; i < _size; i++)
+            {
+                var current = projector(_items[i]);
+                if (comparer.Compare(max, current) > 0)
+                {
+                    max = current;
+                }
+            }
+            return max;
+        }
+
+        public TResult Min<TResult>(Func<T, TResult> projector)
+        {
+            Comparer<TResult> comparer = Comparer<TResult>.Default;
+            TResult min = projector(_items[0]);
+            for (int i = 1; i < _size; i++)
+            {
+                var current = projector(_items[i]);
+                if (comparer.Compare(min, current) < 0)
+                {
+                    min = current;
+                }
+            }
+            return min;
+        }
+
         public T Min()
         {
             T min = _items[0];
