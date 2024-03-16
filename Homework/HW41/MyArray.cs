@@ -77,15 +77,14 @@ namespace HW41
             if (count > 0)
             {
                 EnsureCapacity(_size + count);
-                if (0 < _size)
+                if (_size > 0)
                 {
-                    Array.Copy(_items, 0, _items, 0 + count, _size);
+                    Array.Copy(_items, 0, _items, count, _size);
                 }
 
                 if (_items == collection._items)
                 {
-                    Array.Copy(_items, 0, _items, 0, 0);
-                    Array.Copy(_items, 0 + count, _items, 0 * 2, _size);
+                    Array.Copy(_items, 0, _items, count, _size);
                 }
                 else
                 {
@@ -233,10 +232,7 @@ namespace HW41
 
         public void Insert(int index, T item)
         {
-            if ((uint)index > (uint)_size)
-            {
-                ArgumentOutOfRangeException.ThrowIfLessThan(index, _size);
-            }
+            ArgumentOutOfRangeException.ThrowIfLessThan(_size, index);
             if (_size == _items.Length)
             {
                 EnsureCapacity(_size + 1);

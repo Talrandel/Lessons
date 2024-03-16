@@ -8,7 +8,8 @@ class Program
 
         for (int i = 0; i < 5; i++)
         {
-            arr.Add(Random.Shared.Next(0, 100));
+            //arr.Add(Random.Shared.Next(0, 100));
+            arr.Add(i);
         }
 
         foreach (var item in arr)
