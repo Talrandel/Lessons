@@ -4,10 +4,36 @@
     {
         delegate void MyDelegate();
 
+        delegate void MyDelegate2(int parameter);
+
+        delegate int MyDelegate3();
+
+        delegate int MyDelegate4(int parameter);
+
+
+
+        delegate void MyDelegate5<T>(T parameter);
+
+        // delegate void Action<T>(T parameter);
+        // delegate void Action<T1, T2>(T1 parameter1, T2 parameter2);
+
+        // delegate TResult Func<T>(T parameter);
+        // delegate void Action<T1, T2>(T1 parameter1, T2 parameter2);
+
+
+
+        delegate T MyDelegate6<T>();
+
+        delegate TResult MyDelegate7<T, TResult>(T parameter);
+
+
+
+
         static void DoSomething()
         {
             Console.WriteLine("Blablabla");
         }
+
         static void KirillAskedForAnotherMethod()
         {
             Console.WriteLine("Yes, delegate can contain more methods");
@@ -23,26 +49,41 @@
         {
             return a + b;
         }
+
         static void Main()
         {
             //DoSomething();
 
-            //MyDelegate methodPointer = null;
-            // methodPointer += KirillAskedForAnotherMethod;
+            //MyDelegate methodPointer = DoSomething;
+            // methodPointer += DoSomething;
+            // methodPointer += DoSomething;
+            // methodPointer += DoSomething;
+            // methodPointer += DoSomething;
             // methodPointer();
+
+            // Console.WriteLine();
 
             // methodPointer -= DoSomething;
             // methodPointer();
-            // methodPointer -= KirillAskedForAnotherMethod;
+
             // if (methodPointer != null)
             // {
             //     methodPointer();
             // }
+            // methodPointer?.Invoke();
 
-            //Console.WriteLine();
-            //methodPointer?.Invoke();
+            // MyDelegate method = () => 
+            // {
+            //     Console.WriteLine("Лямбда!");
+            // };
+            // method += DoSomething();
+            // method?.Invoke();
 
-            // MyDelegate method = () => Console.WriteLine("Лямбда!");
+            // MyDelegate3 intDel = () => 1;
+            // intDel += () => 10;
+            // intDel += () => 100;
+            // int result = intDel();
+            // Console.WriteLine(result);
 
             // methodPointer += method;
             // methodPointer?.Invoke();
@@ -59,14 +100,27 @@
             // int result = func();
             // Console.WriteLine(func());
 
+            // Func<int, int> func2 = (x) => 
+            // {
+            //     int result = x * x;
+            //     Console.WriteLine(result);
+            //     return result;
+            // };
+            // func2 += (x) => 
+            // {
+            //     int result = x * x * x;
+            //     Console.WriteLine(result);
+            //     return result;
+            // };
+            //int result = func2(12);
+            //Console.WriteLine(func2(12));
+
             // int[] arrayInt = new int[100];
-            // FillArray(arrayInt, () => new Random().Next(0, 11));
+            // FillArray3(arrayInt, () => Random.Shared.Next(0, int.MaxValue));       
             // Print(arrayInt);
-
-
-
-
-
+            // Console.WriteLine();
+            // FillArray3(arrayInt, () => Random.Shared.Next(int.MinValue, 0));       
+            // Print(arrayInt);
 
             // Action someAction = DoSomething;
             // Func<int> someFunction = GetRandomValue;
@@ -99,13 +153,15 @@
             // int someValue = someFunction();
             // Console.WriteLine(someValue);
 
-            int[] intArray = new int[100];
-            FillArray(intArray, () => Random.Shared.Next(0, 501));
-            Print(intArray);
+            // int[] intArray = new int[100];
+            // FillArray(intArray, () => Random.Shared.Next(0, 501));
 
-            Console.WriteLine();
-
-            //ForEachAction(intArray, (x) => Console.Write(x + " "));
+            // ForEachAction(intArray, (x) => Console.Write(x + " "));
+            // ForEachAction(intArray, (x) => 
+            // {
+            //     double pow = Math.Pow(x, 2);
+            //     Console.WriteLine("Value = " + x + ", pow^2 = " + pow);
+            // });
 
             // FillArray(intArray, () => Random.Shared.Next(int.MinValue, 0));
             // Print(intArray);
@@ -123,12 +179,14 @@
             // int[] newArrayNo100 = Where(intArray, (x) => Math.Abs(x) < 100);
             // ForEachAction(newArrayNo100, (x) => Console.Write(x + " "));
 
-            bool[] boolArray = new bool[100];
-            FillArray(boolArray, () => Random.Shared.Next(0, 2) > 0);
-            PrintArray(boolArray);
+            // bool[] boolArray = new bool[100];
+            // FillArray(boolArray, () => Random.Shared.Next(0, 2) > 0);
+            // PrintArray(boolArray);
             
-            bool[] newBoolArray = Where(boolArray, (x) => x != false);
-            ForEachAction(newBoolArray, (x) => Console.Write(x + " "));
+            // bool[] newBoolArray = Where(boolArray, (x) => x != false);
+            // ForEachAction(newBoolArray, (x) => Console.Write(x + " "));
+
+            Events();
         }
 
         static void Print<T>(T[] array)
@@ -195,7 +253,6 @@
             return newArray;
         }
 
-
         static void PrintArray<T>(T[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -205,5 +262,21 @@
             Console.WriteLine("\n\n");
         }
 
+        static void Events()
+        {
+            MyMagazine magazine = new MyMagazine("пLITка");
+
+            Consumer1 c1 = new Consumer1();
+            Consumer2 c2 = new Consumer2();
+
+            magazine.PublishMagazineEvent += c1.ReactToNewMagazine;
+            magazine.PublishMagazineEvent += c2.ReactToNewMagazine;
+
+            magazine.Publish();
+
+            Console.WriteLine();
+
+            magazine.Publish();
+        }
     }
 }
