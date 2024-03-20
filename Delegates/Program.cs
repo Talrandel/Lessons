@@ -1,56 +1,24 @@
-﻿namespace Delegates
+﻿using static Delegates.ReadyMethods;
+
+namespace Delegates
 {
     class Program
     {
-        delegate void MyDelegate();
-
-        delegate void MyDelegate2(int parameter);
-
-        delegate int MyDelegate3();
-
-        delegate int MyDelegate4(int parameter);
-
-
-
-        delegate void MyDelegate5<T>(T parameter);
-
-        // delegate void Action<T>(T parameter);
-        // delegate void Action<T1, T2>(T1 parameter1, T2 parameter2);
-
-        // delegate TResult Func<T>(T parameter);
-        // delegate void Action<T1, T2>(T1 parameter1, T2 parameter2);
-
-
-
-        delegate T MyDelegate6<T>();
-
-        delegate TResult MyDelegate7<T, TResult>(T parameter);
-
-
-
-
-        static void DoSomething()
-        {
-            Console.WriteLine("Blablabla");
-        }
-
-        static void KirillAskedForAnotherMethod()
-        {
-            Console.WriteLine("Yes, delegate can contain more methods");
-        }
-
-        static int GetRandomValue()
-        {
-            Random rand = new Random();
-            return rand.Next();
-        }
-
-        static int SumTwoValues(int a, int b)
-        {
-            return a + b;
-        }
 
         static void Main()
+        {
+            Ex1();
+            Ex2();
+            Ex3();
+            Ex4();
+
+            Events();
+        }
+
+        /// <summary>
+        /// Basic delegates
+        /// </summary>
+        static void Ex1()
         {
             //DoSomething();
 
@@ -89,7 +57,13 @@
             // methodPointer?.Invoke();
             // methodPointer -= method;
             // methodPointer?.Invoke();
+        }
 
+        /// <summary>
+        /// Action, Func
+        /// </summary>
+        static void Ex2()
+        {
             // Action action = () => Console.WriteLine("Action! Лямбда!");
             // action();
 
@@ -115,15 +89,7 @@
             //int result = func2(12);
             //Console.WriteLine(func2(12));
 
-            // int[] arrayInt = new int[100];
-            // FillArray3(arrayInt, () => Random.Shared.Next(0, int.MaxValue));       
-            // Print(arrayInt);
-            // Console.WriteLine();
-            // FillArray3(arrayInt, () => Random.Shared.Next(int.MinValue, 0));       
-            // Print(arrayInt);
 
-            // Action someAction = DoSomething;
-            // Func<int> someFunction = GetRandomValue;
 
             // someAction();
 
@@ -153,6 +119,19 @@
             // int someValue = someFunction();
             // Console.WriteLine(someValue);
 
+            // Action someAction = DoSomething;
+            // Func<int> someFunction = GetRandomValue;
+        }
+
+        static void Ex3()
+        {
+            // int[] arrayInt = new int[100];
+            // FillArray3(arrayInt, () => Random.Shared.Next(0, int.MaxValue));       
+            // Print(arrayInt);
+            // Console.WriteLine();
+            // FillArray3(arrayInt, () => Random.Shared.Next(int.MinValue, 0));       
+            // Print(arrayInt);
+
             // int[] intArray = new int[100];
             // FillArray(intArray, () => Random.Shared.Next(0, 501));
 
@@ -178,89 +157,39 @@
 
             // int[] newArrayNo100 = Where(intArray, (x) => Math.Abs(x) < 100);
             // ForEachAction(newArrayNo100, (x) => Console.Write(x + " "));
+        }
 
+        static void Ex4()
+        {
             // bool[] boolArray = new bool[100];
             // FillArray(boolArray, () => Random.Shared.Next(0, 2) > 0);
             // PrintArray(boolArray);
-            
+
             // bool[] newBoolArray = Where(boolArray, (x) => x != false);
             // ForEachAction(newBoolArray, (x) => Console.Write(x + " "));
-
-            Events();
         }
 
-        static void Print<T>(T[] array)
+        static void DoSomething()
         {
-            for (int i = 0; i< array.Length; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
-            Console.WriteLine("\n\n");
+            Console.WriteLine("Blablabla");
         }
 
-        static void FillArray<T>(T[] array, Func<T> fillRandFunc)
+        static void KirillAskedForAnotherMethod()
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = fillRandFunc();
-            }
+            Console.WriteLine("Yes, delegate can contain more methods");
         }
 
-        static void PrintElementsWithCondition(int[] array, Func<int, bool> conditionFunc)
+        static int GetRandomValue()
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (conditionFunc(array[i]))
-                {
-                    Console.Write(array[i] + " ");
-                }
-            }
-            Console.WriteLine("\n\n");
+            Random rand = new Random();
+            return rand.Next();
         }
 
-        static void PrintArrayWithCondition<T>(T[] array, Func<T, bool> conditionFunc)
+        static int SumTwoValues(int a, int b)
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (conditionFunc(array[i]))
-                {
-                    Console.Write(array[i] + " ");
-                }
-            }
-            Console.WriteLine();
+            return a + b;
         }
 
-        static void ForEachAction<T>(T[] array, Action<T> action)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                action(array[i]);
-            }
-        }
-
-        static T[] Where<T>(T[] array, Func<T, bool> conditionFunc)
-        {
-            T[] newArray = new T[array.Length];
-            int index = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (conditionFunc(array[i]))
-                {
-                    newArray[index++] = array[i];
-                }
-            }
-            Array.Resize(ref newArray, index);
-            return newArray;
-        }
-
-        static void PrintArray<T>(T[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
-            Console.WriteLine("\n\n");
-        }
 
         static void Events()
         {
