@@ -1,4 +1,6 @@
-﻿using static Delegates.ReadyMethods;
+﻿using System;
+
+using static Delegates.ReadyMethods;
 
 namespace Delegates
 {
@@ -7,12 +9,11 @@ namespace Delegates
 
         static void Main()
         {
-            Ex1();
-            Ex2();
+            //Ex1();
+            //Ex2();
             Ex3();
-            Ex4();
-
-            Events();
+            //Ex4();
+            //Events();
         }
 
         /// <summary>
@@ -23,22 +24,23 @@ namespace Delegates
             //DoSomething();
 
             //MyDelegate methodPointer = DoSomething;
-            // methodPointer += DoSomething;
-            // methodPointer += DoSomething;
-            // methodPointer += DoSomething;
-            // methodPointer += DoSomething;
-            // methodPointer();
+            //methodPointer();
+
+            //MyDelegate methodPointer = DoSomething;
+            //methodPointer += DoSomething;
+            //methodPointer += DoSomething;
+            //methodPointer();
 
             // Console.WriteLine();
 
-            // methodPointer -= DoSomething;
-            // methodPointer();
+            //methodPointer -= DoSomething;
+            //methodPointer();
 
-            // if (methodPointer != null)
-            // {
-            //     methodPointer();
-            // }
-            // methodPointer?.Invoke();
+            //if (methodPointer != null)
+            //{
+            //    methodPointer();
+            //}
+            //methodPointer?.Invoke();
 
             // MyDelegate method = () => 
             // {
@@ -47,16 +49,16 @@ namespace Delegates
             // method += DoSomething();
             // method?.Invoke();
 
-            // MyDelegate3 intDel = () => 1;
-            // intDel += () => 10;
-            // intDel += () => 100;
-            // int result = intDel();
-            // Console.WriteLine(result);
+            MyDelegate3 intDel = () => 1;
+            intDel += () => 10;
+            intDel += () => 100;
+            //int result = intDel();
+            //Console.WriteLine(result);
 
-            // methodPointer += method;
-            // methodPointer?.Invoke();
-            // methodPointer -= method;
-            // methodPointer?.Invoke();
+            foreach (MyDelegate3 currentDelegate in intDel.GetInvocationList())
+            {
+                Console.WriteLine(currentDelegate());
+            }
         }
 
         /// <summary>
@@ -125,22 +127,22 @@ namespace Delegates
 
         static void Ex3()
         {
-            // int[] arrayInt = new int[100];
-            // FillArray3(arrayInt, () => Random.Shared.Next(0, int.MaxValue));       
+            //int[] arrayInt = new int[100];
+            //FillArray(arrayInt, () => Random.Shared.Next(0, int.MaxValue));       
             // Print(arrayInt);
             // Console.WriteLine();
-            // FillArray3(arrayInt, () => Random.Shared.Next(int.MinValue, 0));       
+            // FillArray(arrayInt, () => Random.Shared.Next(int.MinValue, 0));       
             // Print(arrayInt);
 
-            // int[] intArray = new int[100];
-            // FillArray(intArray, () => Random.Shared.Next(0, 501));
+            int[] intArray = new int[100];
+            FillArray(intArray, () => Random.Shared.Next(0, 501));
 
-            // ForEachAction(intArray, (x) => Console.Write(x + " "));
-            // ForEachAction(intArray, (x) => 
-            // {
-            //     double pow = Math.Pow(x, 2);
-            //     Console.WriteLine("Value = " + x + ", pow^2 = " + pow);
-            // });
+            ForEachAction(intArray, (x) => Console.Write(x + " "));
+            ForEachAction(intArray, (x) =>
+            {
+                double pow = Math.Pow(x, 2);
+                Console.WriteLine("Value = " + x + ", pow^2 = " + pow);
+            });
 
             // FillArray(intArray, () => Random.Shared.Next(int.MinValue, 0));
             // Print(intArray);
@@ -171,7 +173,7 @@ namespace Delegates
 
         static void DoSomething()
         {
-            Console.WriteLine("Blablabla");
+            Console.WriteLine("Called method void DoSomething()");
         }
 
         static void KirillAskedForAnotherMethod()
