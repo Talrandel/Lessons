@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
-namespace HW41
+namespace Collections
 {
-    internal class EnumeratorExample
+    internal class EnumeratorExample : IEnumerable
     {
         private int counter;
 
         public EnumeratorExample()
         {
-            counter = 100;
+            counter = 10;
         }
 
         public IEnumerator GetEnumerator()
         {
             return new MyEnumerator(this);
         }
-
 
         struct MyEnumerator : IEnumerator
         {
@@ -35,12 +28,15 @@ namespace HW41
 
             public bool MoveNext()
             {
-                return _ee.counter-- > 0;
+                bool canMoveNext = _ee.counter-- > 0;
+                if (!canMoveNext)
+                    Reset();
+                return canMoveNext;
             }
 
             public void Reset()
             {
-                _ee.counter = 100;
+                _ee.counter = 10;
             }
         }
     }
