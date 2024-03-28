@@ -252,7 +252,7 @@ namespace HW41
             T max = _items[0];
             for (int i = 1; i < _size; i++)
             {
-                if (max.CompareTo(_items[i]) > 0)
+                if (max.CompareTo(_items[i]) < 0)
                 {
                     max = _items[i];
                 }
@@ -267,7 +267,7 @@ namespace HW41
             for (int i = 1; i < _size; i++)
             {
                 var current = projector(_items[i]);
-                if (comparer.Compare(max, current) > 0)
+                if (comparer.Compare(max, current) < 0)
                 {
                     max = current;
                 }
@@ -282,7 +282,7 @@ namespace HW41
             for (int i = 1; i < _size; i++)
             {
                 var current = projector(_items[i]);
-                if (comparer.Compare(min, current) < 0)
+                if (comparer.Compare(min, current) > 0)
                 {
                     min = current;
                 }
@@ -295,7 +295,7 @@ namespace HW41
             T min = _items[0];
             for (int i = 1; i < _size; i++)
             {
-                if (min.CompareTo(_items[i]) < 0)
+                if (min.CompareTo(_items[i]) > 0)
                 {
                     min = _items[i];
                 }
