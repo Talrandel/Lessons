@@ -3,7 +3,7 @@
 namespace HW41
 {
     public sealed class MyArray<T> : IEnumerable<T>, IMyArray<T>
-        where T: IComparable, IComparable<T>, IEquatable<T>
+        where T: IComparable<T>, IEquatable<T>
     {
         private const int DEFAULT_CAPACITY = 7;
         public const int MAX_ARRAY_LENGTH = int.MaxValue / 4;
@@ -24,6 +24,7 @@ namespace HW41
         {
             ArgumentNullException.ThrowIfNull(collection);
             _items = collection;
+            _size = collection.Length;
         }
 
         public int Count => _size;
@@ -79,12 +80,7 @@ namespace HW41
                 EnsureCapacity(_size + count);
                 if (_size > 0)
                 {
-                    Array.Copy(_items, 0, _items, count, _size);
-                }
-
-                if (_items == collection._items)
-                {
-                    Array.Copy(_items, 0, _items, count, _size);
+                    Array.Copy(collection._items, 0, _items, _size, count);
                 }
                 else
                 {
@@ -130,7 +126,7 @@ namespace HW41
         {
             if (_size > 0)
             {
-                Array.Clear(_items, 0, _size);
+                //Array.Clear(_items, 0, _size);
                 _size = 0;
             }
         }
@@ -260,14 +256,18 @@ namespace HW41
             return max;
         }
 
-        public TResult Max<TResult>(Func<T, TResult> projector)
+        public TResult Max<TResult>(Func<T, TResult> projector) where TResult : IComparable<TResult>
         {
             Comparer<TResult> comparer = Comparer<TResult>.Default;
             TResult max = projector(_items[0]);
             for (int i = 1; i < _size; i++)
             {
                 var current = projector(_items[i]);
-                if (comparer.Compare(max, current) > 0)
+                // if (comparer.Compare(max, current) > 0)
+                // {
+                //     max = current;
+                // }
+                if (current.CompareTo(max) > 0)
                 {
                     max = current;
                 }
@@ -316,6 +316,15 @@ namespace HW41
             }
             Array.Resize(ref newArray, index);
             return newArray;
+        }
+
+        public void Print()
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                Console.Write($"{_items[i]} ");
+            }
+            Console.WriteLine("\n\n");
         }
 
         public TResult[] Project<TResult>(Func<T, TResult> projector)
@@ -443,7 +452,7 @@ namespace HW41
             return new MyEnumerator(this);
         }
 
-        public struct MyEnumerator : IEnumerator<T>, IEnumerator
+        public struct MyEnumerator : IEnumerator<T>
         {
             private MyArray<T> _array;
             private int _currentIndex;
@@ -467,8 +476,9 @@ namespace HW41
                     _current = localArray._items[_currentIndex++];
                     return true;
                 }
-                _currentIndex = _array._size + 1;
-                _current = default;
+                // _currentIndex = _array._size + 1;
+                // _current = default;
+                Reset();
                 return false;   
             }
  
@@ -485,6 +495,12 @@ namespace HW41
                     return Current;
                 }
             }
+    
+            public void Reset()
+            {
+                _currentIndex = 0;
+                _current = default;
+            } 
     
             void IEnumerator.Reset()
             {
