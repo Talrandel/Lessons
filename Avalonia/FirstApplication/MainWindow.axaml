@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="360"
+        d:DesignHeight="360"
+        Width="360"
+        Height="360"
+        x:Class="FirstApplication.MainWindow"
+        Title="FirstApplication">
+    <ItemsControl>
+      <StackPanel Margin="20">
+        <TextBox Name="TextBoxOne" Margin="10">Type some text here or press button</TextBox>
+        <Button Name="ButtonOne" Click="ButtonOne_OnClick" Margin="10">Press me!</Button>
+      </StackPanel>
+    </ItemsControl>
+</Window>

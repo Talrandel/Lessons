@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:ThirdApplication.Views"
+        xmlns:vm="using:ThirdApplication.ViewModels"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        Width="360"
+        Height="360"
+        x:DataType="vm:MainViewModel"
+        x:Class="ThirdApplication.MainWindow"
+        Title="ThirdApplication">
+  <ItemsControl>
+    <StackPanel Margin="20">
+      <!--<TextBlock>TextBlock down here is readonly</TextBlock>-->
+      <TextBox Text="{Binding Number, Mode=OneWay}" IsReadOnly="true"></TextBox>
+      <!--<TextBox Text="{Binding Text, DataType={x:Type vm:MainViewModel}}">Waiting for input here</TextBox>-->
+      <Button Command="{Binding OkCommand}">Generate number</Button>
+    </StackPanel>
+  </ItemsControl>
+</Window>
