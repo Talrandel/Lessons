@@ -1,4 +1,6 @@
 ﻿using Avalonia;
+using Avalonia.ReactiveUI;
+
 using System;
 
 namespace FourthApplication;
@@ -17,5 +19,6 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
+            .UseReactiveUI()
             .LogToTrace();
 }

@@ -10,7 +10,7 @@ public class ViewLocator : IDataTemplate
 {
     public bool SupportsRecycling => false;
 
-    Control? ITemplate<object, Control>.Build(object param)
+    Control ITemplate<object, Control>.Build(object param)
     {
         var name = param.GetType().FullName.Replace("ViewModel", "View");
         var type = Type.GetType(name);

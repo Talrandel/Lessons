@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Reactive;
 using System.Reactive.Linq;
+
+using Avalonia;
 
 using FourthApplication.Models;
 using FourthApplication.Services;
@@ -15,6 +18,8 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel(Database db)
     {
         Content = List = new TodoListViewModel(db.GetItems());
+
+        AddItemCommand = ReactiveCommand.Create(AddItem);
     }
 
     public ViewModelBase Content
@@ -23,8 +28,9 @@ public class MainWindowViewModel : ViewModelBase
         private set => this.RaiseAndSetIfChanged(ref content, value);
     }
     public TodoListViewModel List { get; }
+    public ReactiveCommand<Unit, Unit> AddItemCommand { get; }
 
-    public void AddItem()
+    private void AddItem()
     {
         var vm = new AddItemViewModel();
 

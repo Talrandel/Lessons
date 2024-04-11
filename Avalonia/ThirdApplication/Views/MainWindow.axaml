@@ -14,10 +14,11 @@
         Title="ThirdApplication">
   <ItemsControl>
     <StackPanel Margin="20">
-      <!--<TextBlock>TextBlock down here is readonly</TextBlock>-->
-      <TextBox Text="{Binding Number, Mode=OneWay}" IsReadOnly="true"></TextBox>
-      <!--<TextBox Text="{Binding Text, DataType={x:Type vm:MainViewModel}}">Waiting for input here</TextBox>-->
-      <Button Command="{Binding OkCommand}">Generate number</Button>
+      <TextBlock Margin="20">TextBlock down here is readonly</TextBlock>
+      <TextBlock Text="{Binding Text}" Margin="20" Background="Aquamarine"></TextBlock>
+      <TextBox Text="{Binding Text}" Watermark="Waiting for text here" Margin="20"></TextBox>
+      <Button Command="{Binding OkCommand}" Margin="20">Generate number</Button>
+      <TextBox Text="{Binding MainModel.Number, DataType={x:Type vm:MainViewModel}}" IsReadOnly="True" Margin="20"></TextBox>
     </StackPanel>
   </ItemsControl>
 </Window>

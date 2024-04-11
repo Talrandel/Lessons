@@ -10,7 +10,7 @@
              x:Class="FourthApplication.Views.TodoListView">
   <DockPanel>
     <Button DockPanel.Dock="Bottom"
-            Command="{Binding $parent[0].DataContext.AddItem}">
+            Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).AddItemCommand)}">
       Add an item
     </Button>
     <ItemsControl ItemsSource="{Binding Items}">
