@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
+    <Compile Update="**\*.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <AvaloniaResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
@@ -17,6 +24,6 @@
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
-    <PackageReference Include="Material.Avalonia" Version="3.0.0-rc0.86-nightly" />
+    <PackageReference Include="Material.Avalonia" Version="3.5.0" />
   </ItemGroup>
 </Project>
