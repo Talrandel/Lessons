@@ -332,7 +332,19 @@ namespace HW41
             {
                 results[i] = projector(_items[i]);
             }
-            return results;            
+            return results;
+        }
+
+        public MyArray<TResult> Project2<TResult>(Func<T, TResult> projector) where TResult : IComparable<TResult>, IEquatable<TResult>
+        {
+            ArgumentNullException.ThrowIfNull(projector);
+
+            MyArray<TResult> results = new MyArray<TResult>(_size);
+            for (int i = 0; i < _size; i++)
+            {
+                results[i] = projector(_items[i]);
+            }
+            return results;
         }
 
         public bool Remove(T item)
