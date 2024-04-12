@@ -13,6 +13,7 @@ class Program
         students.Add(new Student { Name = "Максим", Phone = new Phone { Model = "Sony Galaxy Pro", Price = 67000 } });
 
         Phone[] phones = students.Project<Phone>(x => x.Phone);
+        MyArray<Phone> phones2 = students.Project2<Phone>(x => x.Phone);
 
 
 

@@ -38,6 +38,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comparison", "Comparison\Comparison.csproj", "{88853D90-45A4-434A-9863-5B3512DD5197}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Avalonia", "Avalonia", "{1A50D311-06FF-418A-A68A-9878C4D18069}"
+	ProjectSection(SolutionItems) = preProject
+		Avalonia\Readme.md = Avalonia\Readme.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApplication", "Avalonia\FirstApplication\FirstApplication.csproj", "{B945D7DD-933D-4F60-BA60-87FBD548BC90}"
 EndProject
