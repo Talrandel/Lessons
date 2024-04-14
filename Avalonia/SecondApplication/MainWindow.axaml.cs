@@ -1,6 +1,8 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
+using System.Threading.Tasks;
+
 namespace SecondApplication;
 
 public partial class MainWindow : Window
@@ -10,11 +12,11 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    public void ButtonOne_OnClick(object sender, RoutedEventArgs args)
+    public async void ButtonOne_OnClick(object sender, RoutedEventArgs args)
     {
         var ownerWindow = this;
         var window = new WindowOne();
-        var dialogResult = window.ShowDialog<bool>(ownerWindow).GetAwaiter().GetResult;
+        var dialogResult = await window.ShowDialog<bool>(ownerWindow);
         TextBlockDialogResult.Text = dialogResult.ToString();
     }
 }

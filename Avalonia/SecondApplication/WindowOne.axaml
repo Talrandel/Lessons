@@ -10,9 +10,18 @@
         x:Class="SecondApplication.WindowOne"
         Title="My new window">
     <ItemsControl>
-      <StackPanel Margin="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="ButtonOk" Click="ButtonOk_OnClick">Ok</Button>
-        <Button x:Name="ButtonCancel" Click="ButtonCancel_OnClick">Cancel</Button>
+      <StackPanel Margin="10, 20, 10, 0"
+                  Orientation="Vertical"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+        <TextBlock TextWrapping="Wrap">This is a simple window, press Ok to return true or Cancel to return false</TextBlock>
+      </StackPanel>
+      <StackPanel Margin="10, 60, 10, 0"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Center">
+        <Button x:Name="ButtonOk" Width="75" HorizontalContentAlignment="Center" Click="ButtonOk_OnClick">Ok</Button>
+        <Button x:Name="ButtonCancel" Width="75" HorizontalContentAlignment="Center" Click="ButtonCancel_OnClick" Content="Cancel"></Button>
       </StackPanel>
     </ItemsControl>
 </Window>
