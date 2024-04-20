@@ -1,0 +1,111 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="600" 
+        Height="500"
+        x:Class="ControlsApplication.MainWindow"
+        Title="ControlsApplication">
+  <!--<StackPanel>
+    <Button>Button</Button>
+    <TextBlock>TextBlock is readonly</TextBlock>
+    <TextBox>TextBox can be edited</TextBox>
+    <ComboBox x:Name="ComboBox_One"></ComboBox>
+    <ListBox x:Name="ListBox_One"></ListBox>
+  </StackPanel>-->
+  <!--<StackPanel Orientation="Horizontal"
+              FlowDirection="RightToLeft">
+    <Button>Button</Button>
+    <TextBlock>TextBlock is readonly</TextBlock>
+    <TextBox>TextBox can be edited</TextBox>
+    <ComboBox x:Name="ComboBox_One"></ComboBox>
+    <ListBox x:Name="ListBox_One"></ListBox>
+  </StackPanel>-->
+  
+  <!--<DockPanel>
+    <Button DockPanel.Dock="Top">Button</Button>
+    <TextBlock DockPanel.Dock="Bottom">TextBlock is readonly</TextBlock>
+    <TextBox DockPanel.Dock="Left">TextBox can be edited</TextBox>
+    <ComboBox DockPanel.Dock="Right" x:Name="ComboBox_One"></ComboBox>
+    <ListBox x:Name="ListBox_One" Background="LightCoral"></ListBox>
+  </DockPanel>-->
+  
+  <!--<WrapPanel Orientation="Horizontal">
+    <Button>Button</Button>
+    <TextBlock>TextBlock is readonly</TextBlock>
+    <TextBox>TextBox can be edited</TextBox>
+    <ComboBox x:Name="ComboBox_One"></ComboBox>
+    <ListBox x:Name="ListBox_One"></ListBox>
+  </WrapPanel>-->
+  
+  <!--<Canvas>
+    <Button>Button</Button>
+    <TextBlock>TextBlock is readonly</TextBlock>
+    <TextBox>TextBox can be edited</TextBox>
+    <ComboBox x:Name="ComboBox_One"></ComboBox>
+    <ListBox x:Name="ListBox_One"></ListBox>
+  </Canvas>-->
+
+  <!--<Canvas>
+    <Button Canvas.Left="100">Button</Button>
+    <TextBlock Canvas.Right="50" Canvas.Top="200">TextBlock is readonly</TextBlock>
+    <TextBox Canvas.Right="50" Canvas.Top="100">TextBox can be edited</TextBox>
+    <ComboBox Canvas.Left="100" Canvas.Bottom="100" x:Name="ComboBox_One" ></ComboBox>
+    <ListBox Canvas.Left="100" Canvas.Top="100" x:Name="ListBox_One"></ListBox>
+  </Canvas>-->
+  
+  <!--<Grid RowDefinitions="auto,auto,auto,auto,auto" 
+        ColumnDefinitions="*,*,*,*,*" 
+        Background="LightGoldenrodYellow"
+        ShowGridLines="True">
+    <Button Grid.Row="0" Grid.Column="0">Button</Button>
+    <TextBlock Grid.Row="1" Grid.Column="1">TextBlock is readonly</TextBlock>
+    <TextBox Grid.Row="2"  Grid.Column="2">TextBox can be edited</TextBox>
+    <ComboBox Grid.Row="3" Grid.Column="3" x:Name="ComboBox_One"></ComboBox>
+    <ListBox Grid.Row="4" Grid.Column="4" x:Name="ListBox_One"></ListBox>
+  </Grid>-->
+  
+  <!--<Grid ShowGridLines="True">
+    <Grid.RowDefinitions>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Button Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Content="Button 0,0"></Button>
+    <Button Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Button 1,1"></Button>
+    <Button Grid.Row="2" Grid.Column="2">Button 2,2</Button>
+  </Grid>-->
+  <Grid ShowGridLines="True"
+        RowDefinitions="*,*,*"
+        ColumnDefinitions="*,*,*">
+    <Button Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Background="Bisque"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">Button 0,0</Button>
+    <Button Grid.Row="1" 
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Background="Cyan"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            x:Name="Button11"
+            Click="Button11_Click">Button 1,1</Button>
+    <Button Grid.Row="2"
+            Grid.Column="2"
+            Background="Violet"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Content="Button 2,2"></Button>
+  </Grid>
+</Window>
