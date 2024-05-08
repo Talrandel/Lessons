@@ -13,12 +13,8 @@ public sealed class MainViewModel : ReactiveObject
     public MainViewModel()
     {
         MainModel = new MainModel();
-        var okEnabled = this.WhenAnyValue(
-            x => x.Text,
-            x => !string.IsNullOrWhiteSpace(x));
 
-        OkCommand = ReactiveCommand.Create(
-            ButtonClick);
+        GenerateNumberCommand = ReactiveCommand.Create(ButtonClick);
     }
     private string _text;
 
@@ -34,5 +30,5 @@ public sealed class MainViewModel : ReactiveObject
         MainModel.Number = _rand.Next();
     }
 
-    public ICommand OkCommand { get; }
+    public ICommand GenerateNumberCommand { get; }
 }

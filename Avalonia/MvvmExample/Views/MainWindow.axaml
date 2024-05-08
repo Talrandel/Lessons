@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MvvmExample.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MvvmExample.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MvvmExample">
+    <ListBox ItemsSource="{Binding Books}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="Blue" 
+                        BorderThickness="1" 
+                        CornerRadius="4" 
+                        Padding="4">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="10" Text="{Binding Title}"/>
+                        <TextBlock Margin="10" Text="{Binding Author}"/>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+<!-- 
+    <TextBlock Text="{Binding Greeting}" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"/> -->
+
+</Window>

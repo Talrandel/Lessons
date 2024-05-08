@@ -1,0 +1,61 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Width="800"
+        Height="450"
+        x:Class="HW4_3.MainWindow"
+        Title="HW4_3">
+  
+  <Window.Styles>
+    <Style Selector="TextBlock">
+      <Setter Property="Margin" Value="5"></Setter>
+      <Setter Property="Foreground" Value="White"></Setter>
+      <Setter Property="FontWeight" Value="Medium"></Setter>
+    </Style>
+  </Window.Styles>
+
+    <Grid RowDefinitions="auto,*"
+          ColumnDefinitions="*,auto">
+        
+        <DockPanel Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Background="#e884c3">
+            <TextBlock Text="Home" />
+            <TextBlock Text="Prices" />
+            <TextBlock DockPanel.Dock="Right"
+                        TextAlignment="Right" 
+                        Text="RSS" />
+            <TextBlock DockPanel.Dock="Right" Text="About us" />
+        </DockPanel>
+
+        <StackPanel Grid.Row="1"
+                    Background="#6f72d9">
+            <TextBlock Text="Article" />
+            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae mauris semper, aliquet sapien eu, rutrum enim. Sed lorem sem, sagittis eget sagittis vitae, eleifend in ipsum. Donec dapibus auctor libero tristique pellentesque. Aliquam erat volutpat. Sed lorem diam, lobortis ut egestas id, vehicula vitae nibh. Ut id diam dignissim libero consectetur vulputate. Ut ac magna sollicitudin, hendrerit neque id, viverra felis. Ut tempor ultrices lorem at bibendum. Duis arcu dolor, cursus ut est at, imperdiet facilisis ante. Nunc finibus risus nec massa mollis pretium. Integer ullamcorper neque a felis tincidunt accumsan id sed tortor." />
+            <!-- <Grid ColumnDefinitions="auto,*,auto">
+                <TextBlock Grid.Column="0" Text="Tags: Tag1, Tag2" />
+                <Border Grid.Column="1" />
+                <StackPanel Grid.Column="2"
+                            Orientation="Horizontal">                    
+                    <TextBlock TextAlignment="Right" Text="Rate this article" />
+                    <TextBlock Text="4/5" />
+                </StackPanel>
+            </Grid> -->
+            <DockPanel>
+                <TextBlock Text="Tags: Tag1, Tag2" />
+                <TextBlock DockPanel.Dock="Right" Text="4/5" />
+                <TextBlock DockPanel.Dock="Right" TextAlignment="Right" Text="Rate this article" />
+            </DockPanel> 
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Background="#32a852">
+            <TextBlock Text="News" />
+        </StackPanel>
+
+    </Grid>
+</Window>

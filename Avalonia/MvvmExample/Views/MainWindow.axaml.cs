@@ -1,8 +1,6 @@
 using Avalonia.Controls;
 
-using ThirdApplication.ViewModels;
-
-namespace ThirdApplication;
+namespace MvvmExample.Views;
 
 public partial class MainWindow : Window
 {

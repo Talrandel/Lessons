@@ -17,8 +17,8 @@
       <TextBlock Margin="20">TextBlock down here is readonly</TextBlock>
       <TextBlock Text="{Binding Text}" Margin="20" Background="Aquamarine"></TextBlock>
       <TextBox Text="{Binding Text}" Watermark="Waiting for text here" Margin="20"></TextBox>
-      <Button Command="{Binding OkCommand}" Margin="20">Generate number</Button>
-      <TextBox Text="{Binding MainModel.Number, DataType={x:Type vm:MainViewModel}}" IsReadOnly="True" Margin="20"></TextBox>
+      <Button Command="{Binding GenerateNumberCommand}" Margin="20">Generate number</Button>
+      <TextBox Text="{Binding MainModel.Number, Mode=TwoWay}" IsReadOnly="True" Margin="20"></TextBox>
     </StackPanel>
   </ItemsControl>
 </Window>

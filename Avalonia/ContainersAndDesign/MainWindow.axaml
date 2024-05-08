@@ -29,18 +29,23 @@
     </Style>
   </Window.Styles>
   
-  <Grid ShowGridLines="False"
+  <Grid ShowGridLines="True"
         RowDefinitions="auto,*,auto"
-        ColumnDefinitions="auto,*"
-        Background="#0F0F2D">
+        ColumnDefinitions="auto,*">
+        <!-- Background="#0F0F2D"> -->
     
     <DockPanel Grid.Row="0"
-               Grid.ColumnSpan="2">
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Background="Blue">
       <TextBlock>Menu</TextBlock>
       <TextBlock>Our products</TextBlock>
       <TextBlock>About us</TextBlock>
       <TextBlock>Contacts</TextBlock>
-      <TextBlock DockPanel.Dock="Right" TextAlignment="Right">Sign in</TextBlock>
+      <TextBlock DockPanel.Dock="Right" 
+                 TextAlignment="Right">
+                 Sign in
+      </TextBlock>
     </DockPanel>
 
     <StackPanel Grid.Row="1"
@@ -53,12 +58,12 @@
       <TextBlock>Product 5</TextBlock>
     </StackPanel>
 
-
     <ScrollViewer Grid.Row="1"
                   Grid.Column="1">
-      <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Vertical"
+                  Background="Yellow">
 
-          <StackPanel>
+          <StackPanel Background="Red">
             <TextBlock TextAlignment="Center"
                        FontFamily="Times New Roman"
                        FontSize="48"
@@ -70,10 +75,7 @@
           <StackPanel Orientation="Vertical"
                       Background="RoyalBlue">
             <TextBlock TextWrapping="Wrap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed rhoncus maximus. Nunc efficitur justo et arcu finibus pellentesque. Nulla eu maximus nunc, quis consectetur enim. Nunc at pretium ligula, sit amet commodo est. Donec imperdiet hendrerit enim vitae egestas. Duis porttitor sem id urna feugiat ornare. Nullam quis mi ultrices, vestibulum odio sed, convallis magna. Aenean ornare est ligula, in pulvinar turpis aliquet vitae. Phasellus ornare, urna non gravida ornare, magna ante interdum sem, at fringilla eros elit vitae turpis. Aliquam bibendum consequat dui, non convallis turpis vulputate quis. Fusce vulputate semper arcu ut blandit. Sed id turpis id nibh porta tincidunt. Ut mi erat, fringilla rhoncus dictum quis, pellentesque nec libero. Fusce tincidunt est in dolor efficitur, sit amet sollicitudin nibh faucibus. Etiam id mi dolor. Nulla posuere, lorem nec imperdiet tincidunt, neque arcu ultricies orci, et egestas leo tortor et diam.</TextBlock>
-            <Image Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia"
-                   Height="100"
-                   Width="100"
-                   Stretch="Uniform"
+            <Image Source="/Assets/faceless.png"
                    HorizontalAlignment="Center"></Image>
             <TextBlock TextAlignment="Right"
                        Margin="0,0,15,10">More...</TextBlock>
@@ -96,11 +98,12 @@
 
     <DockPanel Grid.Row="2"
                Grid.ColumnSpan="2"
-               Background="#17011a">
+               Background="Pink">
       <TextBlock DockPanel.Dock="Left">Footer!</TextBlock>
       <TextBlock DockPanel.Dock="Left">2024</TextBlock>
       <TextBlock DockPanel.Dock="Right" TextAlignment="Right">All rights reserved</TextBlock>
     </DockPanel>
     
   </Grid>
+
 </Window>
