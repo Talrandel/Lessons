@@ -58,7 +58,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetStartedApp", "Avalonia\G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlsApplication", "Avalonia\ControlsApplication\ControlsApplication.csproj", "{CF1A729B-A0A1-4BE5-9992-495BB75408DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersAndDesign", "Avalonia\ContainersAndDesign\ContainersAndDesign.csproj", "{61EDDE42-479B-4088-BD87-74D8EE6B6478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersAndDesign", "Avalonia\ContainersAndDesign\ContainersAndDesign.csproj", "{61EDDE42-479B-4088-BD87-74D8EE6B6478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIExammple1", "Avalonia\UIExammple1\UIExammple1.csproj", "{5844347F-C5DD-42A9-88DF-FE7FE9403B4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +164,10 @@ Global
 		{61EDDE42-479B-4088-BD87-74D8EE6B6478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61EDDE42-479B-4088-BD87-74D8EE6B6478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61EDDE42-479B-4088-BD87-74D8EE6B6478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +187,7 @@ Global
 		{1230F025-FE05-4CFE-AEE2-D944F02E96CD} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 		{CF1A729B-A0A1-4BE5-9992-495BB75408DF} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 		{61EDDE42-479B-4088-BD87-74D8EE6B6478} = {1A50D311-06FF-418A-A68A-9878C4D18069}
+		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B7142E2-B9DB-4FB8-8749-05B1A7ACA74E}

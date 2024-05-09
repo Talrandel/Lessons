@@ -1,0 +1,176 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Width="800"
+        Height="600"
+        x:Class="UIExammple1.MainWindow"
+        Title="UIExammple1">
+
+  <Window.Styles>
+    <Style Selector="TextBlock">
+      <Setter Property="Margin" Value="5"></Setter>
+      <Setter Property="Foreground" Value="White"></Setter>
+      <Setter Property="FontWeight" Value="Medium"></Setter>
+    </Style>
+    <Style Selector="StackPanel TextBlock">
+      <Setter Property="Margin" Value="5"></Setter>
+    </Style>
+    <Style Selector="ScrollViewer StackPanel">
+      <Setter Property="Margin" Value="12"></Setter>
+    </Style>
+    <Style Selector="Image">
+      <Setter Property="Margin" Value="5"></Setter>
+    </Style>
+  </Window.Styles>
+  
+  <Grid ColumnDefinitions="auto,*"
+        RowDefinitions="auto,*"
+        Background="#0F0F2D">
+    
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Foreground="White"
+                 FontSize="20"
+                 FontWeight="Medium"
+                 FontFamily="Times New Roman"
+                 VerticalAlignment="Center">
+        BunnyCo
+      </TextBlock>
+      <TextBlock Foreground="White"
+                 FontSize="20"
+                 FontWeight="Medium"
+                 FontFamily="Times New Roman"
+                 VerticalAlignment="Center">
+        Menu
+      </TextBlock>
+      <TextBlock Foreground="White"
+                 FontSize="20"
+                 FontWeight="Medium"
+                 FontFamily="Times New Roman"
+                 VerticalAlignment="Center">
+        Website
+      </TextBlock>
+      <Button>
+        Start
+      </Button>
+    </StackPanel>
+
+    <StackPanel Grid.Row="1"
+                Grid.Column="0"
+                Margin="10, 25, 0, 0">
+      
+        <StackPanel Orientation="Horizontal">
+          <Image Source="D:\Programs\Lessons\Avalonia\UIExammple1\Images\291px-Shuttle.png"
+                 Width="50"
+                 Height="50">
+          </Image>
+          <TextBlock Foreground="White"
+                     FontSize="20"
+                     FontWeight="Medium"
+                     FontFamily="Times New Roman"
+                     VerticalAlignment="Center">
+            BunnyCo
+          </TextBlock>
+        </StackPanel>
+
+      <StackPanel Orientation="Vertical">
+        <TextBlock Foreground="White"
+                   FontSize="25"
+                   FontWeight="Medium"
+                   FontFamily="Times New Roman"
+                   VerticalAlignment="Center">
+          Customize
+        </TextBlock>
+        <TextBlock Foreground="White"
+                   FontSize="25"
+                   FontWeight="Medium"
+                   FontFamily="Times New Roman"
+                   VerticalAlignment="Center">
+          Your
+        </TextBlock>
+        <TextBlock Foreground="White"
+                   FontSize="25"
+                   FontWeight="Medium"
+                   FontFamily="Times New Roman"
+                   VerticalAlignment="Center">
+          Experience
+        </TextBlock>
+        <TextBlock Foreground="White"
+                   FontSize="18"
+                   FontWeight="UltraLight"
+                   FontFamily="Times New Roman"
+                   VerticalAlignment="Center">
+          Lorem ipsum
+        </TextBlock>
+        
+        <StackPanel Orientation="Horizontal">
+          <Button>
+            Start
+          </Button>
+          <Button>
+            Register
+          </Button>
+        </StackPanel>
+        
+      </StackPanel>
+      
+    </StackPanel>
+
+    <Grid Grid.Row="1"
+          Grid.Column="1"
+          ZIndex="-1"
+          Margin="-160,-125,-110,185">
+
+      <Grid.RenderTransform>
+        <RotateTransform Angle="50"></RotateTransform>
+      </Grid.RenderTransform>
+
+      <StackPanel Orientation="Horizontal"
+                  Margin="-350,250,-255,-250">
+        <StackPanel>
+          <Border Width="700"
+                  Height="35"
+                  Background="#3DDDC2"
+                  Margin="150,0,0,0"
+                  CornerRadius="20">
+          </Border>
+          <Border Width="700"
+                  Height="35"
+                  Background="#FC6586"
+                  Margin="0,15,0,0"
+                  CornerRadius="20">
+          </Border>
+          <Border Width="700"
+                  Height="35"
+                  Background="#383660"
+                  Margin="75,15,0,0"
+                  CornerRadius="20">
+          </Border>
+        </StackPanel>
+        <StackPanel>
+          <Border Width="700"
+                  Height="35"
+                  Background="#3DDDC2"
+                  Margin="150,0,0,0"
+                  CornerRadius="20">
+          </Border>
+          <Border Width="700"
+                  Height="35"
+                  Background="#FC6586"
+                  Margin="0,15,0,0"
+                  CornerRadius="20">
+          </Border>
+          <Border Width="700"
+                  Height="35"
+                  Background="#383660"
+                  Margin="75,15,0,0"
+                  CornerRadius="20">
+          </Border>
+        </StackPanel>
+      </StackPanel>
+      
+    </Grid>
+    
+  </Grid>
+</Window>
