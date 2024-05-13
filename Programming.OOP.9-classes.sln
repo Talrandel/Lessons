@@ -64,6 +64,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIExammple1", "Avalonia\UIE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmExample", "Avalonia\MvvmExample\MvvmExample.csproj", "{6D7D16A9-DABF-4E2E-BE96-D9CDF8A40664}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogMvvm", "Avalonia\BlogMvvm\BlogMvvm.csproj", "{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +176,10 @@ Global
 		{6D7D16A9-DABF-4E2E-BE96-D9CDF8A40664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D7D16A9-DABF-4E2E-BE96-D9CDF8A40664}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D7D16A9-DABF-4E2E-BE96-D9CDF8A40664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +201,7 @@ Global
 		{61EDDE42-479B-4088-BD87-74D8EE6B6478} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 		{5844347F-C5DD-42A9-88DF-FE7FE9403B4F} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 		{6D7D16A9-DABF-4E2E-BE96-D9CDF8A40664} = {1A50D311-06FF-418A-A68A-9878C4D18069}
+		{959647C6-E56F-4BE6-A3A5-1A16EB28F9E5} = {1A50D311-06FF-418A-A68A-9878C4D18069}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B7142E2-B9DB-4FB8-8749-05B1A7ACA74E}

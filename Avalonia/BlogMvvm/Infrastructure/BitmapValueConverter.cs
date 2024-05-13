@@ -1,11 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using Avalonia.Media.Imaging;
 using Avalonia.Data.Converters;
-using BlogMvvm.Models;
+using SkiaSharp;
+using Avalonia.Media;
+using Avalonia.Platform;
 
 namespace BlogMvvm.Infrastructure;
 
@@ -15,26 +15,20 @@ public class BitmapValueConverter : IValueConverter
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is string && targetType == typeof(Bitmap))
+        if (value is string && targetType == typeof(SKBitmap) || targetType == typeof(IImage))
         {
-            //var uri = new Uri((string)value, UriKind.RelativeOrAbsolute);
-
-            // var scheme = uri.IsAbsoluteUri ? uri.Scheme : "file";
-
-            // switch (scheme)
-            // {
-            //     case "file":
-            //         return new Bitmap((string)value);
-
-            //     default:
-            //         var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            //         return new Bitmap(assets.Open(uri));
-            // }
-            var resourceName = $"BlogMvvm.Assets.{value}.png";
-            return new Bitmap(
-                typeof(BlogEntity)
-                .GetTypeInfo()
-                .Assembly.GetManifestResourceStream(resourceName));
+            try
+            {
+                var imagePath = (string)value;
+                var prefix = $"avares://{Assembly.GetExecutingAssembly().GetName().Name}/Assets/";
+                var uri = new Uri(prefix + imagePath, UriKind.RelativeOrAbsolute);
+                var bitmap = new Bitmap(AssetLoader.Open(uri));
+                return bitmap;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         throw new NotSupportedException();
     }
