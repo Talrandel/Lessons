@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BlogMvvm.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:infrastructure="clr-namespace:BlogMvvm.Infrastructure;assembly=BlogMvvm"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BlogMvvm.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="BlogMvvm">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="*,auto">
+        <ListBox Grid.Column="0" 
+                 ItemsSource="{Binding BlogEntities}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="10" Text="{Binding Article}"/>
+                            <TextBlock Margin="10" Text="{Binding Text}"/>
+                            <ListBox ItemsSource="{Binding TagsList}">
+                            </ListBox>
+                            <Image Source="{Binding ImagePath, Converter={x:Static infrastructure:BitmapValueConverter.Instance}}" Width="100" HorizontalAlignment="Center" />
+                        </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox Grid.Column="1" 
+                 ItemsSource="{Binding NewsEntities}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="10" Text="{Binding Text}"/>
+                            <TextBlock Margin="10" Text="{Binding PublishDate}"/>
+                        </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+
+</Window>
