@@ -17,32 +17,35 @@
     </Design.DataContext>
 
     <Grid ColumnDefinitions="*,auto">
-        <ListBox Grid.Column="0" 
-                 ItemsSource="{Binding BlogEntities}">
+      
+        <ListBox ItemsSource="{Binding BlogEntities}">
+          
             <ListBox.ItemTemplate>
                 <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <TextBlock Margin="10" Text="{Binding Article}"/>
                             <TextBlock Margin="10" Text="{Binding Text}"/>
-                            <ListBox ItemsSource="{Binding TagsList}">
-                            </ListBox>
-                            <Image Source="{Binding ImagePath, Converter={x:Static infrastructure:BitmapValueConverter.Instance}}" Width="100" HorizontalAlignment="Center" />
+                            <ListBox ItemsSource="{Binding TagsList}" />
+                            <Image Source="{Binding ImagePath, Converter={x:Static infrastructure:BitmapValueConverter.Instance}}" 
+                                   Width="100" 
+                                   HorizontalAlignment="Center" />
                         </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+          
         </ListBox>
 
-        <ListBox Grid.Column="1" 
-                 ItemsSource="{Binding NewsEntities}">
+        <ListBox ItemsSource="{Binding SomeCollection}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Margin="10" Text="{Binding Text}"/>
-                            <TextBlock Margin="10" Text="{Binding PublishDate}"/>
-                        </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Text}"/>
+                        <TextBlock Text="{Binding Number}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+      
     </Grid>
 
 </Window>

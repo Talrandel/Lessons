@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Reflection;
 using Avalonia.Media.Imaging;
 using Avalonia.Data.Converters;
-using SkiaSharp;
 using Avalonia.Media;
 using Avalonia.Platform;
 
@@ -15,11 +14,10 @@ public class BitmapValueConverter : IValueConverter
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is string && targetType == typeof(SKBitmap) || targetType == typeof(IImage))
+        if (value is string imagePath && targetType == typeof(IImage))
         {
             try
             {
-                var imagePath = (string)value;
                 var prefix = $"avares://{Assembly.GetExecutingAssembly().GetName().Name}/Assets/";
                 var uri = new Uri(prefix + imagePath, UriKind.RelativeOrAbsolute);
                 var bitmap = new Bitmap(AssetLoader.Open(uri));
