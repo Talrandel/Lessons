@@ -8,19 +8,27 @@ public class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel()
     {
+        MainMenuEntity = new() 
+        { 
+            Home = "Home", 
+            About = "About", 
+            MainTopicsList = new List<string> {"Main topic 1","Main topic 2", "Main topic 3"},
+            Profile = "RSS"
+        };
+        
         BlogsEntities = new List<BlogsEntity>()
         {
             new BlogsEntity() 
             {
-                Article = "SHVAlex is Crazy", 
+                Article = "Lorem Ipsum", 
                 Text = "Fedir fedisfsdfshklf pon", 
-                Tags = new List<string> {"Tag1", "Tag2", "Tag3"},
-                ImagePath = "happy.png"
+                ImagePath = "happy.png",
+                Tags = new List<string> {"Tag1", "Tag2", "Tag3"}
             },
             new BlogsEntity() 
             {Article = "Майские указы", Text = "Назначен новый министр обороны!"},
             new BlogsEntity() 
-            {Article = "Это конец?", Text = "С группой 9.5 занятий больше не будет"},
+            {Article = "Это конец?", Text = "С группой 9.4 занятий больше не будет"},
         };
         NewsEntities = new List<NewsEntity>
         {
@@ -29,6 +37,7 @@ public class MainWindowViewModel : ViewModelBase
         };
     }
 
+    public MainEntity MainMenuEntity {get; set;}
     public List<BlogsEntity> BlogsEntities {get; set;}
     public List<NewsEntity> NewsEntities {get; set;}
 
