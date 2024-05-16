@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:infrastructure="using:BlogMVVMThree.Infrastructure"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BlogMVVMThree.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BlogMVVMThree.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="BlogMVVMThree">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="*,auto">
+
+      <!--Записи в блоге-->
+      <ListBox Grid.Column="0" ItemsSource="{Binding BlogEntities}">
+         <ListBox.ItemTemplate>
+          <DataTemplate>
+            <StackPanel>
+              <TextBlock Text ="{Binding Article}"></TextBlock>
+              <TextBlock Text ="{Binding Text}"></TextBlock>
+              <ListBox ItemsSource="{Binding Tags}"></ListBox>
+              <Image Source ="{Binding ImagePath, Converter={x:Static infrastructure:BitmapValueConverter.Instance}}"></Image>
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+        
+      </ListBox>
+
+      <!--Новости-->
+      <ListBox Grid.Column="1"
+               ItemsSource="{Binding NewsEntities}">
+
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <StackPanel>
+              <TextBlock Text ="{Binding Text}"></TextBlock>
+              <TextBlock Text ="{Binding PublishDate}"></TextBlock>
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+  
+    </Grid>
+
+</Window>

@@ -1,0 +1,142 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Test.MainWindow"
+        Title="Test">
+    <StackPanel>
+		<Border BorderBrush="Gray" BorderThickness="1">
+			<Grid Height="40" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*">
+				<TextBlock Grid.Column="0" Text="Home" VerticalAlignment="Center" Margin="5"/>
+				<TextBlock Grid.Column="1" Text="About" VerticalAlignment="Center" Margin="5"/>
+				<TextBlock Grid.Column="2" Text="Blog's Main Topic 1" VerticalAlignment="Center" Margin="5"/>
+				<TextBlock Grid.Column="3" Text="Blog's Main Topic 2" VerticalAlignment="Center" Margin="4"/>
+				<TextBlock Grid.Column="4" Text="Blog's Main Topic 3" VerticalAlignment="Center" Margin="5"/>
+				<TextBlock Grid.Column="5" Text="Associated Blogs" VerticalAlignment="Center" Margin="5"/>
+				<TextBlock Grid.Column="6" Text="RSS" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+			</Grid>
+		</Border>
+		<StackPanel Margin="5">
+			<Grid Margin="5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<Grid Grid.Column="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+
+					<TextBlock Grid.Row="0" Text="Article 1" Margin="5"/>
+
+					<TextBlock Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non lacinia leo. Quisque ultrices, orci ac ornare vulputate, diam ipsum lobortis tortor, eget maximus nunc quam eget lacus. Maecenas diam tellus, viverra vitae sollicitudin quis, lobortis in eros. Aliquam eget lorem purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat ornare porttitor. Phasellus ac nisi quis libero feugiat imperdiet.
+
+Cras ultrices magna sed risus luctus, a bibendum felis venenatis. Integer felis enim, aliquam vitae eleifend nec, tempor at neque. Pellentesque ac mauris ipsum. In et lacus justo. Quisque tristique ultrices lectus, et lacinia sem. Cras suscipit dolor et eleifend consectetur. Vivamus luctus nulla euismod lectus gravida, sed tristique enim lacinia. Nulla facilisi. Cras ipsum est, cursus non lacinia vitae, mattis nec magna. Sed condimentum, risus id efficitur vestibulum, erat enim blandit lorem, ac semper tortor sem sed lectus. Proin posuere velit ligula, et dictum leo tincidunt id. Integer pretium velit eu nunc tincidunt condimentum. Nulla imperdiet tortor leo, id sodales nulla iaculis vitae. Nulla eget varius massa, sed suscipit augue." TextWrapping="Wrap" Margin="5"/>
+
+					<Image Grid.Row="2" Width="300" VerticalAlignment="Bottom" Height="250" Margin="5"/>
+
+					<Grid Grid.Row="3" Grid.Column="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBlock Grid.Column="0" Text="Tags:" VerticalAlignment="Bottom" Margin="5"/>
+						<TextBlock Grid.Column="1" Text="Tag1" VerticalAlignment="Bottom" Margin="5"/>
+						<TextBlock Grid.Column="2" Text="Tag2" VerticalAlignment="Bottom" Margin="5"/>
+						<TextBlock Grid.Column="3" Text="Tag3" VerticalAlignment="Bottom" Margin="5"/>
+						<TextBlock Grid.Column="4" Text="Rate this article" VerticalAlignment="Bottom" Margin="5"/>
+						<TextBlock Grid.Column="5" Text="4/5" VerticalAlignment="Bottom" Margin="5"/>
+					</Grid>
+
+
+				</Grid>
+				<Grid Grid.Column="1">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<TextBlock Grid.Row="0" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. porttitor. Proin tristique venenatis lectus eget bibendum. Pellentesque quis enim in tortor placerat rutrum non at eros. In porttitor faucibus arcu, a aliquam odio fringilla et. Integer tincidunt tortor id laoreet blandit. Vivamus lucttur vpretium velit eu scipit augue. Proin tincidunt nisi tempor ipsum viverra, eu maximus velit ullamcorper..." TextWrapping="Wrap" Margin="5"/>
+					<TextBlock Grid.Row="1" HorizontalAlignment="Right" TextDecorations="Underline" Text="More" Margin="5"/>
+					<TextBlock Grid.Row="2" HorizontalAlignment="Right"  Text="Yesterday" Margin="5"/>
+
+					<TextBlock Grid.Row="3" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. porttitor. Pellentesque quis enim in tortor placerat rutrum non at eros. In porttitor faucibus arcu, a aliquam odio fringilla et. Integer tincidunt tortor id laoreet blandit. Vivamus lucttur vpretium velit eu scipit augue. Proin tincidunt nisi tempor ipsum viverra, eu maximus velit ullamcorper..." TextWrapping="Wrap" Margin="5"/>
+					<TextBlock Grid.Row="4" HorizontalAlignment="Right" TextDecorations="Underline" Text="More" Margin="5"/>
+					<TextBlock Grid.Row="5" HorizontalAlignment="Right"  Text="1 week ago" Margin="5"/>
+				</Grid>
+			</Grid>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Row="0" Text="Article 1" Margin="5"/>
+
+				<TextBlock Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non lacinia leo. Quisque ultrices, orci ac ornare vulputate, diam ipsum lobortis tortor, eget maximus nunc quam eget lacus. Maecenas diam tellus, viverra vitae sollicitudin quis, lobortis in eros. Aliquam eget lorem purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat ornare porttitor. Phasellus ac nisi quis libero feugiat imperdiet.
+
+Cras ultrices magna sed risus luctus, a bibendum felis venenatis. Integer felis enim, aliquam vitae eleifend nec, tempor at neque. Pellentesque ac mauris ipsum. In et lacus justo. Quisque tristique ultrices lectus, et lacinia sem. Cras suscipit dolor et eleifend consectetur. Vivamus luctus nulla euismod lectus gravida, sed tristique enim lacinia. Nulla facilisi. Cras ipsum est, cursus non lacinia vitae, mattis nec magna. Sed condimentum, risus id efficitur vestibulum, erat enim blandit lorem, ac semper tortor sem sed lectus. Proin posuere velit ligula, et dictum leo tincidunt id. Integer pretium velit eu nunc tincidunt condimentum. Nulla imperdiet tortor leo, id sodales nulla iaculis vitae. Nulla eget varius massa, sed suscipit augue." TextWrapping="Wrap" Margin="5"/>
+
+				<Image Grid.Row="2" Width="250" VerticalAlignment="Bottom" Height="250" Margin="5"/>
+
+				<Grid Grid.Row="3" Grid.Column="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="Tags:" VerticalAlignment="Bottom" Margin="5"/>
+					<TextBlock Grid.Column="1" Text="Tag1" VerticalAlignment="Bottom" Margin="5"/>
+					<TextBlock Grid.Column="2" Text="Tag2" VerticalAlignment="Bottom" Margin="5"/>
+					<TextBlock Grid.Column="3" Text="Tag3" VerticalAlignment="Bottom" Margin="5"/>
+					<TextBlock Grid.Column="4" Text="Rate this article" VerticalAlignment="Bottom" Margin="5"/>
+					<TextBlock Grid.Column="5" Text="4/5" VerticalAlignment="Bottom" Margin="5"/>
+				</Grid>
+				
+
+			</Grid>
+			<Grid Grid.Row="1" Grid.Column="1">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<TextBlock Grid.Row="0" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. porttitor. Proin tristique venenatis lectus eget bibendum. Pellentesque quis enim in tortor placerat rutrum non at eros. In porttitor faucibus arcu, a aliquam odio fringilla et. Integer tincidunt tortor id laoreet blandit. Vivamus lucttur vpretium velit eu scipit augue. Proin tincidunt nisi tempor ipsum viverra, eu maximus velit ullamcorper..." TextWrapping="Wrap" Margin="5"/>
+					<TextBlock Grid.Row="1" HorizontalAlignment="Right" TextDecorations="Underline" Text="More" Margin="5"/>
+					<TextBlock Grid.Row="2" HorizontalAlignment="Right"  Text="Yesterday" Margin="5"/>
+
+					<TextBlock Grid.Row="3" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. porttitor. Pellentesque quis enim in tortor placerat rutrum non at eros. In porttitor faucibus arcu, a aliquam odio fringilla et. Integer tincidunt tortor id laoreet blandit. Vivamus lucttur vpretium velit eu scipit augue. Proin tincidunt nisi tempor ipsum viverra, eu maximus velit ullamcorper..." TextWrapping="Wrap" Margin="5"/>
+					<TextBlock Grid.Row="4" HorizontalAlignment="Right" TextDecorations="Underline" Text="More" Margin="5"/>
+					<TextBlock Grid.Row="5" HorizontalAlignment="Right"  Text="1 week ago" Margin="5"/>
+				</Grid>
+
+
+		</StackPanel>
+
+	</StackPanel>
+</Window>
